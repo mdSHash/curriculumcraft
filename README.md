@@ -19,7 +19,7 @@ Everything renders to A4 `.docx` with proper bidi/RTL handling and is editable i
 
 ## Status
 
-Early/alpha. The core ingestion → RAG → generation → DOCX pipeline works end-to-end on real Egyptian textbooks (primary, preparatory, and secondary). A recent self-audit identified a backlog of correctness, security, and performance issues planned for the next release; the current build is **safe to run locally for personal use**, but **do not expose the backend to the public internet without adding authentication first**.
+Early/alpha. The core ingestion → RAG → generation → DOCX pipeline works end-to-end on real Egyptian textbooks (primary, preparatory, and secondary). The build is **safe to run locally for personal use**, but **do not expose the backend to the public internet without adding authentication first** — there is no auth layer yet.
 
 ## Features
 
@@ -188,7 +188,7 @@ MathCraft browses both, downloads PDFs into the upload pipeline on demand, and (
 
 ## Contributing
 
-Issues and PRs welcome. The codebase has a deliberate split between RAG plumbing (`services/rag_*`, `services/embedding_service.py`, `services/hybrid_search.py`) and content generation (`services/*_orchestrator.py`, `services/*_docx_generator.py`); please keep that boundary when adding features.
+Issues and PRs welcome. The codebase keeps a deliberate split between RAG plumbing (`services/rag_*`, `services/embedding_service.py`, `services/hybrid_search.py`) and content generation (`services/*_orchestrator.py`, `services/*_docx_generator.py`); please preserve that boundary when adding features.
 
 ## License
 

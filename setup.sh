@@ -33,7 +33,7 @@ pip install -r requirements.txt --quiet
 
 if [ ! -f ".env" ]; then
     cp .env.example .env
-    echo "  Created .env from template (edit to add your OpenAI API key)"
+    echo "  Created .env from template (edit to add your GEMINI_API_KEY)"
 fi
 
 mkdir -p data/uploads data/workbooks data/faiss_indices
