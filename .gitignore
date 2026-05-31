@@ -1,0 +1,75 @@
+# ─── Secrets ──────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ─── Python ───────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# ─── Virtual environments ────────────────────────────────────────────────
+venv/
+env/
+.venv/
+ENV/
+
+# ─── Node / frontend ─────────────────────────────────────────────────────
+node_modules/
+dist/
+build/
+.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── Application data (uploads, generated artifacts, indices, DB) ────────
+backend/data/uploads/
+backend/data/workbooks/
+backend/data/faiss_indices/
+backend/data/moe_assessment_pdfs/
+backend/data/moe_assessment_text_cache/
+backend/data/moe_catalog_cache.json
+backend/data/moe_assessments_cache.json
+backend/data/*.db
+backend/data/*.db-journal
+backend/data/*.sqlite
+backend/data/*.sqlite3
+data/
+
+# ─── Project-internal docs / scratch ─────────────────────────────────────
+memory/
+.claude/
+.scratch/
+RAG_IMPROVEMENT_PLAN.md
+WORKBOOK_QUALITY_PLAN.md
+
+# ─── Sample / test artifacts kept locally only ───────────────────────────
+# (curriculum PDFs and generated docx are local-only)
+*.pdf
+*.docx
+!frontend/public/**/*.pdf
+!frontend/public/**/*.docx
+
+# ─── Editor / OS junk ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Keep empty data directory placeholder
+!backend/data/.gitkeep
