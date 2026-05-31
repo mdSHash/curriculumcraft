@@ -124,6 +124,8 @@ class ExamListItem(BaseModel):
     duration_minutes: int
     num_variants: int
     status: str
+    progress: int = 0
+    progress_message: Optional[str] = None
     created_at: datetime
 
 
@@ -132,4 +134,6 @@ class ExamStatusResponse(BaseModel):
 
     id: int
     status: str
+    progress: int = 0
+    progress_message: Optional[str] = None
     error: Optional[str] = None

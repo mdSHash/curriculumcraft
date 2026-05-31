@@ -94,4 +94,6 @@ class WorkbookListItem(BaseModel):
     title: str
     total_pages: int
     status: str
+    progress: int = 0
+    progress_message: str | None = None
     created_at: datetime

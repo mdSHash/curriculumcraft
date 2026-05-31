@@ -58,11 +58,20 @@ def _run_migrations() -> None:
     conn = sqlite3.connect(str(db_path))
     cursor = conn.cursor()
 
-    # Check if error_message column exists in workbooks table
-    cursor.execute("PRAGMA table_info(workbooks)")
-    columns = [row[1] for row in cursor.fetchall()]
-    if "error_message" not in columns:
-        cursor.execute("ALTER TABLE workbooks ADD COLUMN error_message TEXT")
-        conn.commit()
+    def add_column_if_missing(table: str, column: str, ddl: str) -> None:
+        cursor.execute(f"PRAGMA table_info({table})")
+        existing = {row[1] for row in cursor.fetchall()}
+        if column not in existing:
+            cursor.execute(f"ALTER TABLE {table} ADD COLUMN {ddl}")
+            conn.commit()
+
+    # Workbooks
+    add_column_if_missing("workbooks", "error_message",    "error_message TEXT")
+    add_column_if_missing("workbooks", "progress",         "progress INTEGER NOT NULL DEFAULT 0")
+    add_column_if_missing("workbooks", "progress_message", "progress_message TEXT")
+
+    # Exams
+    add_column_if_missing("exams", "progress",         "progress INTEGER NOT NULL DEFAULT 0")
+    add_column_if_missing("exams", "progress_message", "progress_message TEXT")
 
     conn.close()

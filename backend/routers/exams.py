@@ -151,6 +151,8 @@ def get_exam_status(exam_id: int, db: Session = Depends(get_db)) -> ExamStatusRe
     return ExamStatusResponse(
         id=exam.id,
         status=exam.status,
+        progress=exam.progress or 0,
+        progress_message=exam.progress_message,
         error=exam.error_message,
     )
 

@@ -39,6 +39,10 @@ class Exam(Base):
     error_message: Mapped[str | None] = mapped_column(
         Text, nullable=True, default=None
     )
+    progress: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    progress_message: Mapped[str | None] = mapped_column(
+        Text, nullable=True, default=None
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, server_default=func.now()
     )

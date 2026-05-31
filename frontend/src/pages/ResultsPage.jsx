@@ -1,49 +1,29 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Download, ArrowLeft, Plus, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
-import { useWorkbooks } from '../hooks/useWorkbooks'
+import { Download, ArrowLeft, Plus, CheckCircle2, AlertCircle } from 'lucide-react'
 import { workbooksApi } from '../api/client'
+import GenerationProgress from '../components/common/GenerationProgress'
 
 const GENERATION_STAGES = [
-  { key: 'retrieving', label: 'Retrieving curriculum content...', icon: '📚' },
-  { key: 'generating', label: 'Generating exercises...', icon: '✏️' },
-  { key: 'assembling', label: 'Assembling workbook...', icon: '📄' },
-  { key: 'finalizing', label: 'Finalizing document...', icon: '✨' },
+  { key: 'retrieving', label: 'Retrieving curriculum content', icon: '📚' },
+  { key: 'generating', label: 'Generating exercises', icon: '✏️' },
+  { key: 'assembling', label: 'Assembling workbook', icon: '📄' },
+  { key: 'finalizing', label: 'Finalizing document', icon: '✨' },
 ]
 
 export default function ResultsPage() {
   const { workbookId } = useParams()
   const navigate = useNavigate()
-  const { pollStatus, downloadWorkbook } = useWorkbooks()
 
   const [status, setStatus] = useState('generating') // generating | ready | error
   const [workbookData, setWorkbookData] = useState(null)
-  const [currentStage, setCurrentStage] = useState(0)
+  const [serverProgress, setServerProgress] = useState(0)
+  const [serverMessage, setServerMessage] = useState(null)
   const [downloading, setDownloading] = useState(false)
   const [error, setError] = useState(null)
-  const stageIntervalRef = useRef(null)
+  const pollIntervalRef = useRef(null)
 
-  // Simulate stage progression while generating
-  useEffect(() => {
-    if (status === 'generating') {
-      stageIntervalRef.current = setInterval(() => {
-        setCurrentStage((prev) => {
-          if (prev < GENERATION_STAGES.length - 1) return prev + 1
-          return prev
-        })
-      }, 3000)
-    }
-
-    return () => {
-      if (stageIntervalRef.current) {
-        clearInterval(stageIntervalRef.current)
-      }
-    }
-  }, [status])
-
-  // Poll for status
-  // Fetch full workbook details when ready
   const fetchWorkbookDetails = async () => {
     try {
       const res = await workbooksApi.get(workbookId)
@@ -57,61 +37,52 @@ export default function ResultsPage() {
     const checkStatus = async () => {
       try {
         const res = await workbooksApi.getStatus(workbookId)
-        if (res.data.status === 'ready') {
+        const data = res.data
+        if (typeof data.progress === 'number') setServerProgress(data.progress)
+        if (data.progress_message !== undefined) setServerMessage(data.progress_message)
+        if (data.status === 'ready') {
           setStatus('ready')
+          setServerProgress(100)
           fetchWorkbookDetails()
-          if (stageIntervalRef.current) clearInterval(stageIntervalRef.current)
-        } else if (res.data.status === 'error') {
+          if (pollIntervalRef.current) clearInterval(pollIntervalRef.current)
+        } else if (data.status === 'error') {
           setStatus('error')
-          setError(res.data.error || 'Generation failed')
-          if (stageIntervalRef.current) clearInterval(stageIntervalRef.current)
+          setError(data.error || 'Generation failed')
+          if (pollIntervalRef.current) clearInterval(pollIntervalRef.current)
         }
       } catch (err) {
         // Continue polling
       }
     }
 
-    // Initial check
     checkStatus()
+    pollIntervalRef.current = setInterval(checkStatus, 2000)
 
-    // Start polling
-    pollStatus(workbookId, (data) => {
-      if (data.status === 'ready') {
-        setStatus('ready')
-        fetchWorkbookDetails()
-        if (stageIntervalRef.current) clearInterval(stageIntervalRef.current)
-      } else if (data.status === 'error') {
-        setStatus('error')
-        setError(data.error || 'Generation failed')
-        if (stageIntervalRef.current) clearInterval(stageIntervalRef.current)
-      }
-    })
+    return () => {
+      if (pollIntervalRef.current) clearInterval(pollIntervalRef.current)
+    }
   }, [workbookId])
 
   const handleDownload = async () => {
     setDownloading(true)
     try {
-      await downloadWorkbook(workbookId)
+      const res = await workbooksApi.download(workbookId)
+      const blob = new Blob([res.data], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      })
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', workbookData?.filename || `workbook-${workbookId}.docx`)
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      window.URL.revokeObjectURL(url)
     } catch (err) {
-      setError(err instanceof Error ? err.message : (typeof err === 'string' ? err : 'Download failed'))
+      setError('Download failed')
     } finally {
       setDownloading(false)
     }
-  }
-
-  const handleRetry = () => {
-    setStatus('generating')
-    setCurrentStage(0)
-    setError(null)
-    pollStatus(workbookId, (data) => {
-      if (data.status === 'ready') {
-        setStatus('ready')
-        setWorkbookData(data)
-      } else if (data.status === 'error') {
-        setStatus('error')
-        setError(data.error || 'Generation failed')
-      }
-    })
   }
 
   return (
@@ -131,75 +102,15 @@ export default function ResultsPage() {
       <AnimatePresence mode="wait">
         {/* Generating State */}
         {status === 'generating' && (
-          <motion.div
-            key="generating"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white border border-gray-200 rounded-xl p-8"
-          >
-            <div className="text-center mb-8">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                className="inline-block mb-4"
-              >
-                <Loader2 size={40} className="text-blue-500" />
-              </motion.div>
-              <h2 className="text-lg font-semibold text-gray-900">Generating Your Workbook</h2>
-              <p className="text-sm text-gray-500 mt-1">This may take a minute or two</p>
-            </div>
-
-            {/* Progress stages */}
-            <div className="space-y-3 max-w-sm mx-auto">
-              {GENERATION_STAGES.map((stage, index) => {
-                const isActive = index === currentStage
-                const isCompleted = index < currentStage
-                const isFuture = index > currentStage
-
-                return (
-                  <motion.div
-                    key={stage.key}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className={`
-                      flex items-center gap-3 p-3 rounded-lg transition-all duration-300
-                      ${isActive ? 'bg-blue-50 border border-blue-200' : ''}
-                      ${isCompleted ? 'opacity-60' : ''}
-                      ${isFuture ? 'opacity-30' : ''}
-                    `}
-                  >
-                    <span className="text-lg">{stage.icon}</span>
-                    <span className={`text-sm ${isActive ? 'font-medium text-blue-700' : 'text-gray-600'}`}>
-                      {stage.label}
-                    </span>
-                    {isActive && (
-                      <motion.div
-                        animate={{ opacity: [0.4, 1, 0.4] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                        className="ml-auto w-2 h-2 rounded-full bg-blue-500"
-                      />
-                    )}
-                    {isCompleted && (
-                      <CheckCircle2 size={16} className="ml-auto text-green-500" />
-                    )}
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {/* Progress bar */}
-            <div className="mt-8 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <motion.div
-                className="h-full bg-blue-500 rounded-full"
-                initial={{ width: '5%' }}
-                animate={{ width: `${((currentStage + 1) / GENERATION_STAGES.length) * 90}%` }}
-                transition={{ duration: 0.5 }}
-              />
-            </div>
-          </motion.div>
+          <div key="generating">
+            <GenerationProgress
+              heading="Generating Your Workbook"
+              stages={GENERATION_STAGES}
+              serverProgress={serverProgress}
+              serverMessage={serverMessage}
+              expectedSeconds={90}
+            />
+          </div>
         )}
 
         {/* Ready State */}
@@ -356,10 +267,10 @@ export default function ResultsPage() {
 
             <div className="flex items-center justify-center gap-3">
               <button
-                onClick={handleRetry}
+                onClick={() => navigate(-1)}
                 className="px-5 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
               >
-                Try Again
+                Back to Builder
               </button>
               <button
                 onClick={() => navigate('/')}

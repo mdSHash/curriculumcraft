@@ -8,10 +8,10 @@ export default function Sidebar() {
   const { t, isRTL } = useLanguage()
 
   const navItems = [
-    { to: '/', icon: Home, labelKey: 'nav.dashboard' },
-    { to: '/upload', icon: Upload, labelKey: 'nav.upload' },
-    { to: '#', icon: FileText, labelKey: 'nav.workbooks' },
-    { to: '#', icon: Settings, labelKey: 'nav.settings' },
+    { to: '/',          icon: Home,     labelKey: 'nav.dashboard' },
+    { to: '/upload',    icon: Upload,   labelKey: 'nav.upload' },
+    { to: '/workbooks', icon: FileText, labelKey: 'nav.workbooks' },
+    { to: '/settings',  icon: Settings, labelKey: 'nav.settings' },
   ]
 
   return (
@@ -21,7 +21,7 @@ export default function Sidebar() {
           const Icon = item.icon
           const isActive = item.to === '/'
             ? location.pathname === '/'
-            : location.pathname.startsWith(item.to) && item.to !== '#'
+            : location.pathname.startsWith(item.to)
 
           return (
             <NavLink

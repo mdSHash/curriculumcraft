@@ -155,6 +155,17 @@ class ExamOrchestrator:
         self.structure = config.get("structure", {})
         self.formatting = config.get("formatting", {})
 
+    def _set_progress(self, percent: int, message: str) -> None:
+        """Persist a progress update to the exam row (best-effort)."""
+        try:
+            exam = self.db.query(Exam).filter(Exam.id == self.exam_id).first()
+            if exam:
+                exam.progress = max(0, min(100, int(percent)))
+                exam.progress_message = message[:255] if message else None
+                self.db.commit()
+        except Exception as e:  # pragma: no cover — defensive
+            logger.warning(f"[ExamOrchestrator] Failed to update progress: {e}")
+
     # ─── Service initialization ──────────────────────────────────────────────
 
     def _init_rag_services(self):
@@ -226,6 +237,7 @@ class ExamOrchestrator:
             language = self.formatting.get("language", "arabic")
 
             # Step 1: Plan section distribution (topic-organized OR question-type)
+            self._set_progress(5, "Planning exam sections…")
             logger.info(
                 f"[ExamOrchestrator] Step 1: Planning sections "
                 f"for exam {self.exam_id} (type={exam_type}, "
@@ -235,10 +247,12 @@ class ExamOrchestrator:
             logger.info(f"[ExamOrchestrator] Sections planned: {len(sections)}")
 
             # Step 2: Retrieve RAG context (textbook chunks + optional MOE reference)
+            self._set_progress(15, "Retrieving curriculum content…")
             logger.info("[ExamOrchestrator] Step 2: Retrieving RAG context")
             context = await self._retrieve_context()
 
             # Step 3: Generate questions for each section × each group
+            self._set_progress(25, "Generating exam questions…")
             logger.info("[ExamOrchestrator] Step 3: Generating questions via LLM")
             exam_content = await self._generate_exam_questions(
                 sections, context, language, groups_per_variant
@@ -251,10 +265,12 @@ class ExamOrchestrator:
             logger.info(f"[ExamOrchestrator] Generated {total_q} total questions")
 
             # Step 4: Build answer key
+            self._set_progress(75, "Building answer key…")
             logger.info("[ExamOrchestrator] Step 4: Building answer key")
             answer_key = self._extract_answer_key(exam_content)
 
             # Step 5: Assemble DOCX
+            self._set_progress(85, "Assembling exam document…")
             logger.info("[ExamOrchestrator] Step 5: Assembling DOCX files")
             output_dir = Path(settings.OUTPUT_DIR)
             output_dir.mkdir(parents=True, exist_ok=True)
@@ -277,6 +293,7 @@ class ExamOrchestrator:
             # Step 6: Generate additional variants (entirely separate papers)
             variant_files: list[str] = []
             if num_variants > 1:
+                self._set_progress(90, f"Generating {num_variants - 1} extra variant(s)…")
                 logger.info(
                     f"[ExamOrchestrator] Step 6: Generating "
                     f"{num_variants - 1} additional variants"
@@ -293,6 +310,7 @@ class ExamOrchestrator:
                     variant_files.append(variant_filename)
 
             # Step 7: Persist DB record
+            self._set_progress(98, "Finalizing…")
             logger.info("[ExamOrchestrator] Step 7: Updating database record")
             exam = self.db.query(Exam).filter(Exam.id == self.exam_id).first()
             if exam:
@@ -301,6 +319,8 @@ class ExamOrchestrator:
                 exam.answer_key_filename = answer_key_filename
                 exam.answer_key_path = str(answer_key_path)
                 exam.status = "ready"
+                exam.progress = 100
+                exam.progress_message = "Done"
                 self.db.commit()
 
             logger.info(

@@ -26,6 +26,8 @@ class WorkbookStatusResponse(BaseModel):
 
     id: int
     status: str
+    progress: int = 0
+    progress_message: str | None = None
     error: str | None = None
 
 
@@ -142,6 +144,8 @@ def get_workbook_status(
     return WorkbookStatusResponse(
         id=workbook.id,
         status=workbook.status,
+        progress=workbook.progress or 0,
+        progress_message=workbook.progress_message,
         error=workbook.error_message if workbook.status == "error" else None,
     )
 

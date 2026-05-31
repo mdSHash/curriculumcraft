@@ -6,6 +6,8 @@ import UploadPage from './pages/UploadPage'
 import WorkbookBuilder from './pages/WorkbookBuilder'
 import ResultsPage from './pages/ResultsPage'
 import ExamResultsPage from './pages/ExamResultsPage'
+import WorkbooksPage from './pages/WorkbooksPage'
+import SettingsPage from './pages/SettingsPage'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="builder/:bookId" element={<WorkbookBuilder />} />
           <Route path="results/:workbookId" element={<ResultsPage />} />
           <Route path="exam-results/:examId" element={<ExamResultsPage />} />
+          <Route path="workbooks" element={<WorkbooksPage />} />
+          <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
     </>

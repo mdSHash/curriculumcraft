@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Download, ArrowLeft, CheckCircle2, AlertCircle, Loader2, FileText, Key } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, AlertCircle, Loader2, FileText, Key } from 'lucide-react'
 import { examsApi } from '../api/client'
+import GenerationProgress from '../components/common/GenerationProgress'
 
 const GENERATION_STAGES = [
-  { key: 'retrieving', label: 'Retrieving curriculum content...', icon: '📚' },
-  { key: 'generating', label: 'Generating exam questions...', icon: '✏️' },
-  { key: 'assembling', label: 'Assembling exam document...', icon: '📄' },
-  { key: 'answer_key', label: 'Creating answer key...', icon: '🔑' },
-  { key: 'finalizing', label: 'Finalizing documents...', icon: '✨' },
+  { key: 'retrieving', label: 'Retrieving curriculum content', icon: '📚' },
+  { key: 'generating', label: 'Generating exam questions', icon: '✏️' },
+  { key: 'answer_key', label: 'Building answer key', icon: '🔑' },
+  { key: 'assembling', label: 'Assembling exam document', icon: '📄' },
+  { key: 'finalizing', label: 'Finalizing documents', icon: '✨' },
 ]
 
 export default function ExamResultsPage() {
@@ -18,45 +19,28 @@ export default function ExamResultsPage() {
 
   const [status, setStatus] = useState('generating')
   const [examData, setExamData] = useState(null)
-  const [currentStage, setCurrentStage] = useState(0)
+  const [serverProgress, setServerProgress] = useState(0)
+  const [serverMessage, setServerMessage] = useState(null)
   const [downloading, setDownloading] = useState(false)
   const [downloadingKey, setDownloadingKey] = useState(false)
   const [error, setError] = useState(null)
-  const stageIntervalRef = useRef(null)
   const pollIntervalRef = useRef(null)
 
-  // Simulate stage progression while generating
-  useEffect(() => {
-    if (status === 'generating') {
-      stageIntervalRef.current = setInterval(() => {
-        setCurrentStage((prev) => {
-          if (prev < GENERATION_STAGES.length - 1) return prev + 1
-          return prev
-        })
-      }, 3500)
-    }
-
-    return () => {
-      if (stageIntervalRef.current) {
-        clearInterval(stageIntervalRef.current)
-      }
-    }
-  }, [status])
-
-  // Poll for status
   useEffect(() => {
     const checkStatus = async () => {
       try {
         const res = await examsApi.getStatus(examId)
-        if (res.data.status === 'ready') {
+        const data = res.data
+        if (typeof data.progress === 'number') setServerProgress(data.progress)
+        if (data.progress_message !== undefined) setServerMessage(data.progress_message)
+        if (data.status === 'ready') {
           setStatus('ready')
+          setServerProgress(100)
           fetchExamDetails()
-          if (stageIntervalRef.current) clearInterval(stageIntervalRef.current)
           if (pollIntervalRef.current) clearInterval(pollIntervalRef.current)
-        } else if (res.data.status === 'error') {
+        } else if (data.status === 'error') {
           setStatus('error')
-          setError(res.data.error || 'Generation failed')
-          if (stageIntervalRef.current) clearInterval(stageIntervalRef.current)
+          setError(data.error || 'Generation failed')
           if (pollIntervalRef.current) clearInterval(pollIntervalRef.current)
         }
       } catch (err) {
@@ -64,16 +48,11 @@ export default function ExamResultsPage() {
       }
     }
 
-    // Initial check
     checkStatus()
-
-    // Start polling every 2 seconds
     pollIntervalRef.current = setInterval(checkStatus, 2000)
 
     return () => {
-      if (pollIntervalRef.current) {
-        clearInterval(pollIntervalRef.current)
-      }
+      if (pollIntervalRef.current) clearInterval(pollIntervalRef.current)
     }
   }, [examId])
 
@@ -147,75 +126,15 @@ export default function ExamResultsPage() {
       <AnimatePresence mode="wait">
         {/* Generating State */}
         {status === 'generating' && (
-          <motion.div
-            key="generating"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white border border-gray-200 rounded-xl p-8"
-          >
-            <div className="text-center mb-8">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                className="inline-block mb-4"
-              >
-                <Loader2 size={40} className="text-blue-500" />
-              </motion.div>
-              <h2 className="text-lg font-semibold text-gray-900">Generating Your Exam</h2>
-              <p className="text-sm text-gray-500 mt-1">This may take a minute or two</p>
-            </div>
-
-            {/* Progress stages */}
-            <div className="space-y-3 max-w-sm mx-auto">
-              {GENERATION_STAGES.map((stage, index) => {
-                const isActive = index === currentStage
-                const isCompleted = index < currentStage
-                const isFuture = index > currentStage
-
-                return (
-                  <motion.div
-                    key={stage.key}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className={`
-                      flex items-center gap-3 p-3 rounded-lg transition-all duration-300
-                      ${isActive ? 'bg-blue-50 border border-blue-200' : ''}
-                      ${isCompleted ? 'opacity-60' : ''}
-                      ${isFuture ? 'opacity-30' : ''}
-                    `}
-                  >
-                    <span className="text-lg">{stage.icon}</span>
-                    <span className={`text-sm ${isActive ? 'font-medium text-blue-700' : 'text-gray-600'}`}>
-                      {stage.label}
-                    </span>
-                    {isActive && (
-                      <motion.div
-                        animate={{ opacity: [0.4, 1, 0.4] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                        className="ml-auto w-2 h-2 rounded-full bg-blue-500"
-                      />
-                    )}
-                    {isCompleted && (
-                      <CheckCircle2 size={16} className="ml-auto text-green-500" />
-                    )}
-                  </motion.div>
-                )
-              })}
-            </div>
-
-            {/* Progress bar */}
-            <div className="mt-8 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <motion.div
-                className="h-full bg-blue-500 rounded-full"
-                initial={{ width: '5%' }}
-                animate={{ width: `${((currentStage + 1) / GENERATION_STAGES.length) * 90}%` }}
-                transition={{ duration: 0.5 }}
-              />
-            </div>
-          </motion.div>
+          <div key="generating">
+            <GenerationProgress
+              heading="Generating Your Exam"
+              stages={GENERATION_STAGES}
+              serverProgress={serverProgress}
+              serverMessage={serverMessage}
+              expectedSeconds={120}
+            />
+          </div>
         )}
 
         {/* Ready State */}

@@ -61,6 +61,21 @@ class WorkbookOrchestrator:
         self.exercise_config = config.get("exercises", {})
         self.formatting = config.get("formatting", {})
 
+    def _set_progress(self, percent: int, message: str) -> None:
+        """Persist a progress update to the workbook row.
+
+        Best-effort: a failure here is logged and swallowed so a progress-write
+        glitch can never derail generation itself.
+        """
+        try:
+            workbook = self.db.query(Workbook).filter(Workbook.id == self.workbook_id).first()
+            if workbook:
+                workbook.progress = max(0, min(100, int(percent)))
+                workbook.progress_message = message[:255] if message else None
+                self.db.commit()
+        except Exception as e:  # pragma: no cover — defensive
+            logger.warning(f"[Orchestrator] Failed to update progress: {e}")
+
     def _init_rag_services(self):
         """Lazily initialize RAG services (embedding, hybrid search, context assembler).
 
@@ -139,6 +154,8 @@ class WorkbookOrchestrator:
             num_pages = self.structure.get("total_pages", 20)
             is_study_book = output_mode == "illustration_and_workbook"
 
+            self._set_progress(3, "Planning exercise distribution…")
+
             # Step 1: Calculate exercise distribution (page-budget-aware)
             logger.info(f"[Orchestrator] Step 1: Calculating exercise distribution for workbook {self.workbook_id}")
             distribution = self._calculate_exercise_distribution()
@@ -151,6 +168,7 @@ class WorkbookOrchestrator:
             # Step 1.5: Generate lesson illustrations (study book mode only)
             lesson_illustrations = []
             if is_study_book:
+                self._set_progress(8, "Generating lesson illustrations…")
                 logger.info(f"[Orchestrator] Step 1.5: Generating lesson illustrations for study book mode")
                 lesson_illustrations = await self._generate_lesson_illustrations()
                 logger.info(f"[Orchestrator] Generated {len(lesson_illustrations)} lesson illustrations")
@@ -158,16 +176,19 @@ class WorkbookOrchestrator:
             # Step 1.6: Generate solved examples (study book mode only)
             solved_examples = []
             if is_study_book:
+                self._set_progress(20, "Generating solved examples…")
                 logger.info(f"[Orchestrator] Step 1.6: Generating solved examples for study book mode")
                 solved_examples = await self._generate_solved_examples()
                 logger.info(f"[Orchestrator] Generated {len(solved_examples)} solved examples")
 
             # Step 2: Generate exercises
+            self._set_progress(30 if is_study_book else 10, "Retrieving curriculum content…")
             logger.info(f"[Orchestrator] Step 2: Generating exercises for workbook {self.workbook_id}")
             exercises = await self._generate_exercises(distribution)
             logger.info(f"[Orchestrator] Generated {len(exercises)} exercises total")
 
             # Step 2.5: Deduplicate exercises
+            self._set_progress(80, "Deduplicating exercises…")
             exercises = self._deduplicate_exercises(exercises)
 
             # Step 2.6: Enforce page budget cap — trim excess exercises
@@ -189,12 +210,14 @@ class WorkbookOrchestrator:
                 exercises = exercises[:max_exercises]
 
             # Step 2.7: Math verification (best-effort)
+            self._set_progress(85, "Verifying math correctness…")
             exercises = await self._verify_exercises(exercises)
 
             # Step 2.8: Order exercises pedagogically (grouped by topic, then difficulty)
             exercises = self._order_exercises_pedagogically(exercises)
 
             # Step 3: Assemble DOCX
+            self._set_progress(92, "Assembling document…")
             logger.info(f"[Orchestrator] Step 3: Assembling DOCX for workbook {self.workbook_id}")
             filename = f"workbook_{uuid.uuid4().hex[:8]}.docx"
             output_dir = Path(settings.OUTPUT_DIR)
@@ -219,6 +242,8 @@ class WorkbookOrchestrator:
                 workbook.filename = filename
                 workbook.file_path = saved_path
                 workbook.status = "ready"
+                workbook.progress = 100
+                workbook.progress_message = "Done"
                 self.db.commit()
                 self.db.refresh(workbook)
 
@@ -385,7 +410,19 @@ class WorkbookOrchestrator:
                 grade_level = self.formatting.get("grade", "")
 
                 batch_failures = 0
+                # Reserve [progress_start, progress_end] for the batch loop so
+                # the bar moves smoothly through each generated batch.
+                progress_start = 30 if self.structure.get("output_mode") == "illustration_and_workbook" else 10
+                progress_end = 78
+                progress_span = progress_end - progress_start
+                total_batches = max(1, len(distribution))
+
                 for batch_idx, batch in enumerate(distribution):
+                    pct = progress_start + int(progress_span * batch_idx / total_batches)
+                    self._set_progress(
+                        pct,
+                        f"Generating exercises ({batch_idx + 1}/{total_batches})…",
+                    )
                     try:
                         # Build context using RAG if available
                         context = await self._build_rag_context_for_batch(
