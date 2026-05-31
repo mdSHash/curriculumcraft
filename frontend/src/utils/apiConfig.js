@@ -12,14 +12,17 @@ function strip(url) {
   return (url || '').trim().replace(/\/+$/, '')
 }
 
+export function getOverrideUrl() {
+  if (typeof window === 'undefined') return ''
+  return strip(window.localStorage.getItem(STORAGE_KEY) || '')
+}
+
+export function getBuildDefaultUrl() {
+  return strip(import.meta.env.VITE_API_BASE_URL || '')
+}
+
 export function getApiBaseUrl() {
-  if (typeof window !== 'undefined') {
-    const override = window.localStorage.getItem(STORAGE_KEY)
-    if (override) return strip(override)
-  }
-  const buildDefault = import.meta.env.VITE_API_BASE_URL
-  if (buildDefault) return strip(buildDefault)
-  return ''
+  return getOverrideUrl() || getBuildDefaultUrl()
 }
 
 export function setApiBaseUrl(url) {
@@ -30,6 +33,11 @@ export function setApiBaseUrl(url) {
   } else {
     window.localStorage.setItem(STORAGE_KEY, cleaned)
   }
+}
+
+export function clearApiBaseUrl() {
+  if (typeof window === 'undefined') return
+  window.localStorage.removeItem(STORAGE_KEY)
 }
 
 export function getHealthUrl() {
