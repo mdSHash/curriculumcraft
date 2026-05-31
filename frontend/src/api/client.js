@@ -1,10 +1,17 @@
 import axios from 'axios'
+import { getApiBaseUrl } from '../utils/apiConfig'
 
 const api = axios.create({
-  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json',
   },
+})
+
+// Resolve baseURL per-request so localStorage updates take effect immediately
+// (no full page reload needed after the user changes the backend URL).
+api.interceptors.request.use((config) => {
+  config.baseURL = `${getApiBaseUrl()}/api`
+  return config
 })
 
 // Books API

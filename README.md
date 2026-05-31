@@ -13,9 +13,9 @@ Everything renders to A4 `.docx` with proper bidi/RTL handling and is editable i
 
 ## Live demo
 
-- **Frontend (UI only):** https://mdshash.github.io/mathcraft/
+- **Frontend:** https://mdshash.github.io/mathcraft/
 
-> **Note:** GitHub Pages serves the React frontend as a static demo so you can poke around the wizard. Uploads, generation, and downloads require the FastAPI backend running locally — clone the repo and follow the setup below to run the full app.
+GitHub Pages serves the React frontend as a static site. To make it actually generate workbooks, run the FastAPI backend on your own machine and connect the deployed frontend to it via a free **Cloudflare Tunnel** — see [HOSTING.md](HOSTING.md) for the 3-step setup. (Or just run both halves locally — instructions below.)
 
 ## Status
 
