@@ -37,6 +37,7 @@ jobs:
         working-directory: frontend
         env:
           MATHCRAFT_BUILD_TARGET: pages
+          VITE_API_BASE_URL: https://scriptmaker-mathcraft.hf.space
         run: npm run build
 
       - name: Disable Jekyll
