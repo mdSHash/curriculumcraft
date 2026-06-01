@@ -1,6 +1,6 @@
-# Hosting MathCraft for free
+# Hosting CurriculumCraft for free
 
-The frontend is hosted on **GitHub Pages** at <https://mdshash.github.io/mathcraft/>. It's a static React bundle — there's no server-side code there. To actually generate workbooks you have to run the backend somewhere and tell the deployed frontend how to reach it.
+The frontend is hosted on **GitHub Pages** at <https://mdshash.github.io/curriculumcraft/>. It's a static React bundle — there's no server-side code there. To actually generate workbooks you have to run the backend somewhere and tell the deployed frontend how to reach it.
 
 The simplest free setup: **run the backend on your own machine, expose it through a Cloudflare Tunnel, and paste the tunnel URL into the deployed frontend**. No server bill, no deploy step on every push, full performance.
 
@@ -48,14 +48,14 @@ The script will:
    ```
 
 3. Copy that URL.
-4. Open <https://mdshash.github.io/mathcraft/> — you'll see an amber "Backend not connected" banner. Click **Connect backend**, paste the URL, click **Test**, then **Save**.
+4. Open <https://mdshash.github.io/curriculumcraft/> — you'll see an amber "Backend not connected" banner. Click **Connect backend**, paste the URL, click **Test**, then **Save**.
 
 The URL is stored in your browser's localStorage, so the same browser remembers it across page reloads. **A new URL is generated every time you restart the tunnel** — paste the new one in when that happens.
 
 ### Stopping
 
 - macOS / Linux: `Ctrl+C` in the launcher terminal stops both the tunnel and the backend.
-- Windows: `Ctrl+C` stops the tunnel; close the second "MathCraft backend" window to stop the backend.
+- Windows: `Ctrl+C` stops the tunnel; close the second "CurriculumCraft backend" window to stop the backend.
 
 ---
 

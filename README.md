@@ -56,16 +56,16 @@ Active development. The core ingestion → RAG → generation → DOCX pipeline 
 ### Windows
 
 ```powershell
-git clone https://github.com/mdSHash/mathcraft.git
-cd mathcraft
+git clone https://github.com/mdSHash/curriculumcraft.git
+cd curriculumcraft
 .\setup.bat
 ```
 
 ### macOS / Linux
 
 ```bash
-git clone https://github.com/mdSHash/mathcraft.git
-cd mathcraft
+git clone https://github.com/mdSHash/curriculumcraft.git
+cd curriculumcraft
 chmod +x setup.sh && ./setup.sh
 ```
 
@@ -186,7 +186,7 @@ MathCraft browses both, downloads PDFs into the upload pipeline on demand, and (
 - Upload size limit declared in config but not yet enforced.
 - OCR is synchronous; large scanned books can block the event loop.
 - LLM calls run sequentially per workbook; concurrent batching planned.
-- See [issues](https://github.com/mdSHash/mathcraft/issues) for the full backlog.
+- See [issues](https://github.com/mdSHash/curriculumcraft/issues) for the full backlog.
 
 ## Contributing
 

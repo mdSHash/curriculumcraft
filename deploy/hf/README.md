@@ -1,25 +1,28 @@
 ---
-title: MathCraft API
+title: CurriculumCraft API
 emoji: 🧮
 colorFrom: indigo
 colorTo: blue
 sdk: docker
 app_port: 8000
 pinned: false
-short_description: Egyptian-curriculum math workbook & exam generator API.
+short_description: Egyptian-curriculum workbook & exam generator API across all 24 MOE subjects.
 ---
 
-# MathCraft API
+# CurriculumCraft API
 
-This Space hosts the FastAPI backend for **MathCraft** — an AI-powered generator for Egyptian-curriculum math workbooks, quizzes, and MOE-style weekly assessments.
+This Space hosts the FastAPI backend for **CurriculumCraft** — an AI-powered generator for Egyptian-curriculum workbooks, quizzes, and MOE-style weekly assessments across all 24 official subjects (math, languages, sciences, ICT, religion, history, and more).
 
-The frontend lives on GitHub Pages: <https://mdshash.github.io/mathcraft/>
+The frontend lives on GitHub Pages: <https://mdshash.github.io/curriculumcraft/>
 
-Source code: <https://github.com/mdSHash/mathcraft>
+Source code: <https://github.com/mdSHash/curriculumcraft>
 
 ## Endpoints
 
 - `GET /api/health` — liveness probe
+- `GET /api/subjects` — canonical 24-subject taxonomy
+- `GET /api/moe-library/books?subject={key}` — browse MOE textbooks (any of 24 subjects, or omit for all)
+- `GET /api/moe-library/assessments?subject={key}` — browse weekly assessments
 - `POST /api/books/upload` — upload a textbook PDF
 - `POST /api/workbooks/generate` — generate a workbook
 - `POST /api/exams/generate` — generate an exam
