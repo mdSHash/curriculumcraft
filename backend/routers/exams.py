@@ -102,9 +102,12 @@ def generate_exam(
             detail=f"Book is not ready (status: {book.status}). Please wait for processing to complete.",
         )
 
-    # Create exam record
+    # Create exam record. subject_key is denormalized from the parent
+    # Book at creation time so deletion / subject rename of the book
+    # doesn't break in-flight generation.
     exam = Exam(
         book_id=config.scope.book_id,
+        subject_key=book.subject_key or "math",
         title=config.formatting.title,
         exam_type=config.structure.exam_type,
         config_json=json.dumps(config.model_dump(), ensure_ascii=False),

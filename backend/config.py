@@ -33,6 +33,15 @@ class Settings(BaseSettings):
 
     # Page Budget Settings
     EXERCISES_PER_PAGE_AVG: int = 4
+
+    # Answer correctness verification. Per-subject dispatch is handled by
+    # SubjectStrategy.verifier() — math returns MathVerifier, others
+    # return None so we never run a math-equation check on prose answers.
+    # This setting is the global kill-switch only.
+    ANSWER_VERIFICATION_ENABLED: bool = True
+    ANSWER_VERIFICATION_TEMPERATURE: float = 0.0
+    # Backwards-compat aliases for the pre-Phase-2 setting names. Read
+    # via the verification_enabled property so old .env files keep working.
     MATH_VERIFICATION_ENABLED: bool = True
     MATH_VERIFICATION_TEMPERATURE: float = 0.0
 
@@ -72,6 +81,18 @@ class Settings(BaseSettings):
     def cors_origins_list(self) -> list[str]:
         """Parse CORS_ORIGINS string into a list."""
         return [origin.strip() for origin in self.CORS_ORIGINS.split(",")]
+
+    @property
+    def verification_enabled(self) -> bool:
+        """Single source of truth for whether answer verification runs.
+
+        Honors the new ANSWER_VERIFICATION_ENABLED name AND the legacy
+        MATH_VERIFICATION_ENABLED alias so existing .env files keep
+        working unchanged. AND-combined: if either is disabled, skip.
+        """
+        return bool(self.ANSWER_VERIFICATION_ENABLED) and bool(
+            self.MATH_VERIFICATION_ENABLED
+        )
 
 
 @lru_cache()

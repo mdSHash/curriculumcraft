@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 
 from config import get_settings
 from models.workbook import Workbook
+from services.subjects.registry import get_strategy
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -60,6 +61,14 @@ class WorkbookOrchestrator:
         self.structure = config.get("structure", {})
         self.exercise_config = config.get("exercises", {})
         self.formatting = config.get("formatting", {})
+
+        # Resolve the per-subject strategy from the Workbook row's
+        # subject_key (denormalized from the parent Book). Used to
+        # dispatch math verification, rendering pipeline, and (in
+        # future commits) per-subject prompts and fallbacks.
+        wb_row = self.db.query(Workbook).filter(Workbook.id == self.workbook_id).first()
+        subject_key = wb_row.subject_key if wb_row else None
+        self.strategy = get_strategy(self.db, subject_key)
 
     def _set_progress(self, percent: int, message: str) -> None:
         """Persist a progress update to the workbook row.
@@ -323,22 +332,35 @@ class WorkbookOrchestrator:
         Returns:
             Verified/corrected exercises.
         """
-        if not settings.MATH_VERIFICATION_ENABLED:
+        if not settings.verification_enabled:
+            return exercises
+
+        # Dispatch on subject: only run answer verification when the
+        # strategy provides one. Math returns MathVerifier; non-math
+        # subjects (arabic, language, religion, history…) return None
+        # so we don't run a math-equation check on prose answers.
+        verifier = self.strategy.verifier()
+        if verifier is None:
+            logger.info(
+                "[Orchestrator] Subject %r has no answer verifier — skipping",
+                self.strategy.key,
+            )
+            for ex in exercises:
+                ex.setdefault("_verified", False)
             return exercises
 
         try:
-            from services.math_verifier import MathVerifier
-
-            verifier = MathVerifier()
             verified = await verifier.verify_exercises(exercises)
-            logger.info(f"[Orchestrator] Math verification complete for {len(exercises)} exercises")
+            logger.info(
+                "[Orchestrator] Answer verification complete for %d exercises (subject=%s)",
+                len(exercises), self.strategy.key,
+            )
             return verified
         except Exception as e:
             logger.warning(
-                f"[Orchestrator] Math verification system failed (non-blocking): {e}. "
+                f"[Orchestrator] Answer verification system failed (non-blocking): {e}. "
                 f"All {len(exercises)} exercises included as unverified."
             )
-            # Mark all exercises as unverified in metadata (for logging purposes)
             for ex in exercises:
                 ex.setdefault("_verified", False)
             return exercises

@@ -104,14 +104,27 @@ def generate_workbook(
     kicks off the actual generation in a background task.
     Returns the workbook info immediately for the client to poll status.
     """
-    # Verify the book exists
+    # Verify the book exists and is ready for generation. Without the
+    # status gate, generation kicks off against an empty FAISS index and
+    # silently produces template-only workbooks.
     book = db.query(Book).filter(Book.id == config.scope.book_id).first()
     if not book:
         raise HTTPException(status_code=404, detail="Source book not found.")
+    if book.status != "ready":
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Book is not ready (status: {book.status}). "
+                f"Please wait for ingestion to complete."
+            ),
+        )
 
-    # Create workbook record with generating status
+    # Create workbook record with generating status. subject_key is
+    # denormalized from the parent Book at creation time so deletion or
+    # subject rename of the book doesn't break in-flight generation.
     workbook = Workbook(
         book_id=config.scope.book_id,
+        subject_key=book.subject_key or "math",
         title=config.formatting.title,
         config_json=json.dumps(config.model_dump(), ensure_ascii=False),
         filename="",

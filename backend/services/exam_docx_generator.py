@@ -26,13 +26,33 @@ logger = logging.getLogger(__name__)
 class ExamDocxGenerator:
     """Generates exam DOCX files in official MOE format."""
 
-    def __init__(self, formatting: dict, structure: dict) -> None:
+    def __init__(
+        self,
+        formatting: dict,
+        structure: dict,
+        letterhead_lines: Optional[list[str]] = None,
+        subject_label: Optional[str] = None,
+    ) -> None:
+        """
+        Args:
+            formatting: Exam formatting dict (title, school_name, subject, …).
+            structure: Exam structure dict (exam_type, total_marks, …).
+            letterhead_lines: Optional per-subject ministry letterhead lines.
+                              When None, falls back to the math department
+                              default for backwards compat with pre-Phase-2
+                              callers.
+            subject_label: Optional display label for the subject. When set,
+                           used as the default `subject` field on the exam
+                           header if the formatting dict didn't supply one.
+        """
         self.formatting = formatting
         self.structure = structure
         self.language = formatting.get("language", "arabic")
         self.is_rtl = self.language in ("arabic", "bilingual")
         self.exam_type = structure.get("exam_type", "monthly_exam")
         self.is_weekly = self.exam_type == "weekly_assessment"
+        self.letterhead_lines = list(letterhead_lines or [])
+        self.subject_label = subject_label or ""
 
     # ─── Public API ──────────────────────────────────────────────────────────
 
@@ -139,7 +159,11 @@ class ExamDocxGenerator:
             row.cells[2].width = Cm(6)
 
         school_name = self.formatting.get("school_name", "..................")
-        subject = self.formatting.get("subject", "الرياضيات")
+        subject = (
+            self.formatting.get("subject")
+            or self.subject_label
+            or ("الرياضيات" if self.is_rtl else "Mathematics")
+        )
         grade = self.formatting.get("grade", "")
         term = self.formatting.get("term", "")
         academic_year = self.formatting.get("academic_year", "2025-2026")
@@ -255,20 +279,29 @@ class ExamDocxGenerator:
         run.font.color.rgb = RGBColor(0, 0, 128)
 
     def _add_ministry_letterhead(self, doc: Document) -> None:
-        """Prepend the multi-line MOE letterhead seen on weekly assessments."""
-        lines = (
-            [
-                "وزارة التربية والتعليم و التعليم الفني",
-                "الإدارة المركزية للتعليم العام",
-                "إدارة تنمية مادة الرياضيات",
-                "مكتب مستشار الرياضيات",
-            ] if self.is_rtl else [
-                "Ministry of Education & Technical Education",
-                "Central Administration for General Education",
-                "Mathematics Curriculum Development Department",
-                "Office of the Mathematics Consultant",
-            ]
-        )
+        """Prepend the multi-line MOE letterhead seen on weekly assessments.
+
+        Lines come from the per-subject SubjectStrategy (passed in via
+        constructor). Falls back to the math department default for any
+        legacy caller that constructs ExamDocxGenerator without providing
+        letterhead_lines.
+        """
+        if self.letterhead_lines:
+            lines = list(self.letterhead_lines)
+        else:
+            lines = (
+                [
+                    "وزارة التربية والتعليم و التعليم الفني",
+                    "الإدارة المركزية للتعليم العام",
+                    "إدارة تنمية مادة الرياضيات",
+                    "مكتب مستشار الرياضيات",
+                ] if self.is_rtl else [
+                    "Ministry of Education & Technical Education",
+                    "Central Administration for General Education",
+                    "Mathematics Curriculum Development Department",
+                    "Office of the Mathematics Consultant",
+                ]
+            )
         for line in lines:
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.CENTER

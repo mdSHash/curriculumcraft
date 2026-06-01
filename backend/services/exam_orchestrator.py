@@ -16,6 +16,7 @@ from sqlalchemy.orm import Session
 
 from config import get_settings
 from models.exam import Exam
+from services.subjects.registry import get_strategy
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -155,6 +156,13 @@ class ExamOrchestrator:
         self.structure = config.get("structure", {})
         self.formatting = config.get("formatting", {})
 
+        # Resolve the per-subject strategy from the Exam row's subject_key
+        # (denormalized from the parent Book at creation time). Falls back
+        # to MathStrategy for any pre-Phase-1 row that has no subject_key.
+        exam_row = self.db.query(Exam).filter(Exam.id == self.exam_id).first()
+        subject_key = exam_row.subject_key if exam_row else None
+        self.strategy = get_strategy(self.db, subject_key)
+
     def _set_progress(self, percent: int, message: str) -> None:
         """Persist a progress update to the exam row (best-effort)."""
         try:
@@ -275,9 +283,16 @@ class ExamOrchestrator:
             output_dir = Path(settings.OUTPUT_DIR)
             output_dir.mkdir(parents=True, exist_ok=True)
 
+            # Pass the per-subject letterhead lines so weekly assessments
+            # render the correct ministry department name (e.g. 'إدارة
+            # تنمية مادة اللغة العربية' for arabic_lang instead of the
+            # math department default).
+            letterhead_lang = "ar" if language in ("arabic", "bilingual") else "en"
             generator = ExamDocxGenerator(
                 formatting=self.formatting,
                 structure=self.structure,
+                letterhead_lines=self.strategy.letterhead_lines(letterhead_lang),
+                subject_label=self.strategy.label(letterhead_lang),
             )
 
             # Main exam paper (variant 1)
@@ -366,7 +381,15 @@ class ExamOrchestrator:
         """Build topic-organized sections (MOE weekly assessment style)."""
         topic_sections = self.structure.get("topic_sections") or []
         if not topic_sections:
-            topic_sections = [dict(s) for s in DEFAULT_TOPIC_SECTIONS]
+            # Per-subject defaults from the strategy (replaces the
+            # math-only DEFAULT_TOPIC_SECTIONS hardcoding). Falls back
+            # to the math defaults for any subject that doesn't seed
+            # default_topic_sections in subjects.json.
+            grade = self.formatting.get("grade", "")
+            topic_sections = (
+                self.strategy.default_topic_sections(grade)
+                or [dict(s) for s in DEFAULT_TOPIC_SECTIONS]
+            )
 
         total_marks = int(self.structure.get("total_marks", 20) or 20)
         sections: list[dict] = []
