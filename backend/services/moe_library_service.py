@@ -80,10 +80,15 @@ class MOELibraryService:
         Path(__file__).parent.parent / "data" / "moe_assessment_pdfs"
     )
 
-    # Cookie values supplied by the user; observed to be required for the cha/
-    # endpoint by some Azure-fronted edge nodes (ARRAffinity sticky-session
-    # cookies). They are harmless when not strictly required.
-    DEFAULT_ASSESSMENT_COOKIES = {
+    # ARRAffinity sticky-session cookies. The MOE eLibrary's Azure-fronted
+    # edge enforces these for BOTH /books/books.json AND /cha/books.json
+    # when called from server IPs (Hugging Face Spaces, datacenters, etc.).
+    # A browser session sets them transparently, but our backend has to
+    # send them explicitly or the upstream returns 4xx / empty responses.
+    # Pre-Phase-5 the cookies were only applied to /cha/, which is why the
+    # HF-Space-deployed `/api/moe-library/books` reliably failed while the
+    # user's browser-direct curl succeeded.
+    DEFAULT_MOE_COOKIES = {
         "ARRAffinity": (
             "64adb35001c568b258ff44fc1c3af6bf72cb47eb6848a69162d3eb10492d715c"
         ),
@@ -91,24 +96,26 @@ class MOELibraryService:
             "64adb35001c568b258ff44fc1c3af6bf72cb47eb6848a69162d3eb10492d715c"
         ),
     }
+    # Backwards-compat alias for any external caller still referencing the
+    # old (assessments-only) name.
+    DEFAULT_ASSESSMENT_COOKIES = DEFAULT_MOE_COOKIES
 
-    def __init__(self) -> None:
-        self._client_headers = {
-            "Accept": "*/*",
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/148.0.0.0 Safari/537.36"
-            ),
-            "Referer": f"{self.BASE_URL}/books/",
-        }
-        self._assessment_headers = {
+    @staticmethod
+    def _browser_headers(referer: str) -> dict[str, str]:
+        """Build the browser-mimicking header set MOE's edge expects.
+
+        Identical between /books/ and /cha/ except for Referer — the edge
+        validates Referer matches the called path's parent dir. Mirroring
+        a real Brave/Chrome request was the only way to consistently get
+        200s from the HF Space's IP range.
+        """
+        return {
             "Accept": "*/*",
             "Accept-Language": "en-US,en;q=0.8",
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
             "Pragma": "no-cache",
-            "Referer": f"{self.BASE_URL}/cha/",
+            "Referer": referer,
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Mode": "cors",
             "Sec-Fetch-Site": "same-origin",
@@ -119,6 +126,11 @@ class MOELibraryService:
                 "Chrome/148.0.0.0 Safari/537.36"
             ),
         }
+
+    def __init__(self) -> None:
+        # Per-endpoint header sets. Same browser shape, different Referer.
+        self._client_headers = self._browser_headers(f"{self.BASE_URL}/books/")
+        self._assessment_headers = self._browser_headers(f"{self.BASE_URL}/cha/")
 
     # ─── Catalog ID generation ──────────────────────────────────────────────
 
@@ -213,20 +225,33 @@ class MOELibraryService:
             logger.info(f"Using cached MOE catalog: {len(cached)} books.")
             return cached
 
-        logger.info("Fetching MOE eLibrary catalog from API...")
+        logger.info("Fetching MOE eLibrary catalog from /books/books.json")
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
+            # ARRAffinity cookies are REQUIRED — the Azure edge returns 4xx
+            # or empty responses to cookie-less requests from server IPs.
+            # Same shape as fetch_assessments_catalog below; without this
+            # the deployed HF Space's `/api/moe-library/books` reliably
+            # fails while the user's browser-direct curl succeeds.
+            async with httpx.AsyncClient(
+                timeout=30.0,
+                cookies=self.DEFAULT_MOE_COOKIES,
+                follow_redirects=True,
+            ) as client:
                 response = await client.get(self.BOOKS_API, headers=self._client_headers)
                 response.raise_for_status()
                 books_raw = response.json()
         except httpx.HTTPStatusError as e:
-            logger.error(f"MOE API returned error status: {e.response.status_code}")
+            logger.error(
+                "MOE /books/books.json returned %d. Body (first 500): %s",
+                e.response.status_code,
+                e.response.text[:500] if e.response is not None else "",
+            )
             raise RuntimeError(f"MOE eLibrary API error: {e.response.status_code}")
         except httpx.RequestError as e:
-            logger.error(f"MOE API request failed: {e}")
+            logger.error(f"MOE /books/books.json request failed: {e}")
             raise RuntimeError(f"Failed to connect to MOE eLibrary: {e}")
         except json.JSONDecodeError:
-            logger.error("MOE API returned invalid JSON.")
+            logger.error("MOE /books/books.json returned invalid JSON.")
             raise RuntimeError("MOE eLibrary returned invalid data.")
 
         books = []
@@ -355,7 +380,8 @@ class MOELibraryService:
         try:
             async with httpx.AsyncClient(
                 timeout=30.0,
-                cookies=self.DEFAULT_ASSESSMENT_COOKIES,
+                cookies=self.DEFAULT_MOE_COOKIES,
+                follow_redirects=True,
             ) as client:
                 response = await client.get(
                     self.ASSESSMENTS_API,
