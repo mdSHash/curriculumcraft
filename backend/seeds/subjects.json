@@ -1,0 +1,819 @@
+[
+  {
+    "key": "math",
+    "label_en": "Mathematics",
+    "label_ar": "الرياضيات",
+    "moe_catalog_labels": [
+      "الرياضيات",
+      "الرياضيات باللغة العربية",
+      "الرياضيات باللغة الانجليزية",
+      "الرياضيات البحتة باللغة العربية",
+      "الرياضيات البحتة باللغة الانجليزية",
+      "الرياضيات العامة باللغة العربية",
+      "الرياضيات العامة باللغة الإنجليزية",
+      "تطبيقات الرياضيات باللغة العربية",
+      "تطبيقات الرياضيات باللغة الإنجليزية",
+      "Mathematics",
+      "Math"
+    ],
+    "content_traits": {
+      "has_math": true,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": true,
+      "has_math_rendering": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الجبر",          "title_en": "First: Algebra",      "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: حساب المثلثات", "title_en": "Second: Trigonometry", "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: الهندسة",       "title_en": "Third: Geometry",      "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الرياضيات",
+      "مكتب مستشار الرياضيات"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Mathematics Curriculum Development",
+      "Office of the Mathematics Advisor"
+    ]
+  },
+  {
+    "key": "physics",
+    "label_en": "Physics",
+    "label_ar": "الفيزياء",
+    "moe_catalog_labels": [
+      "الفيزياء",
+      "الفيزياء باللغة العربية",
+      "الفيزياء باللغة الانجليزية",
+      "Physics"
+    ],
+    "content_traits": {
+      "has_math": true,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": true,
+      "has_math_rendering": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الميكانيكا",   "title_en": "First: Mechanics",                "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: الكهرباء",     "title_en": "Second: Electricity",             "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: الضوء والحديثة", "title_en": "Third: Optics & Modern Physics", "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الفيزياء"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Physics Curriculum Development"
+    ]
+  },
+  {
+    "key": "chemistry",
+    "label_en": "Chemistry",
+    "label_ar": "الكيمياء",
+    "moe_catalog_labels": [
+      "الكيمياء",
+      "الكيمياء باللغة العربية",
+      "الكيمياء باللغة الانجليزية",
+      "Chemistry"
+    ],
+    "content_traits": {
+      "has_math": true,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": true,
+      "has_math_rendering": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الكيمياء غير العضوية", "title_en": "First: Inorganic Chemistry", "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: الكيمياء الفيزيائية",   "title_en": "Second: Physical Chemistry", "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: الكيمياء العضوية",     "title_en": "Third: Organic Chemistry",   "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الكيمياء"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Chemistry Curriculum Development"
+    ]
+  },
+  {
+    "key": "integrated_science",
+    "label_en": "Integrated Science",
+    "label_ar": "العلوم المتكاملة",
+    "moe_catalog_labels": [
+      "العلوم المتكاملة",
+      "العلوم المتكاملة باللغة العربية",
+      "العلوم المتكاملة باللغة الإنجليزية",
+      "Integrated Science"
+    ],
+    "content_traits": {
+      "has_math": true,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": true,
+      "has_math_rendering": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الأحياء",         "title_en": "First: Biology",        "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: علوم الأرض",     "title_en": "Second: Earth Science", "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: الفيزياء والكيمياء", "title_en": "Third: Physics & Chemistry Basics", "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة العلوم المتكاملة"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Integrated Science Curriculum Development"
+    ]
+  },
+  {
+    "key": "arabic_lang",
+    "label_en": "Arabic Language",
+    "label_ar": "اللغة العربية",
+    "moe_catalog_labels": [
+      "اللغة العربية",
+      "Arabic"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: القراءة والنصوص", "title_en": "First: Reading & Texts",      "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: النحو",           "title_en": "Second: Grammar",             "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: البلاغة والصرف",   "title_en": "Third: Rhetoric & Morphology", "count": 2, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: التعبير",          "title_en": "Fourth: Composition",         "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة العربية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Arabic Language Curriculum Development"
+    ]
+  },
+  {
+    "key": "english_lang",
+    "label_en": "English (L1)",
+    "label_ar": "اللغة الإنجليزية لغة أولى",
+    "moe_catalog_labels": [
+      "اللغة الانجليزية لغة اولى",
+      "اللغة الإنجليزية لغة أولى",
+      "English"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: القراءة والاستيعاب", "title_en": "First: Reading Comprehension", "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القواعد",            "title_en": "Second: Grammar",              "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: المفردات",           "title_en": "Third: Vocabulary",            "count": 2, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: الكتابة",             "title_en": "Fourth: Writing",              "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الإنجليزية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of English Language Curriculum Development"
+    ]
+  },
+  {
+    "key": "french_l1",
+    "label_en": "French (L1)",
+    "label_ar": "اللغة الفرنسية لغة أولى",
+    "moe_catalog_labels": [
+      "اللغة الفرنسية لغة اولى",
+      "اللغة الفرنسية لغة أولى",
+      "French L1"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: القراءة",   "title_en": "First: Reading",     "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القواعد",   "title_en": "Second: Grammar",    "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: المفردات",  "title_en": "Third: Vocabulary",  "count": 2, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: الكتابة",    "title_en": "Fourth: Writing",    "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الفرنسية (لغة أولى)"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of French Language Curriculum Development (L1)"
+    ]
+  },
+  {
+    "key": "french_l2",
+    "label_en": "French (L2)",
+    "label_ar": "اللغة الفرنسية لغة ثانية",
+    "moe_catalog_labels": [
+      "اللغة الفرنسية لغة ثانية",
+      "French L2"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_second_language": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الاستماع",  "title_en": "First: Listening",  "count": 2, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القراءة",   "title_en": "Second: Reading",    "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: القواعد",   "title_en": "Third: Grammar",     "count": 3, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: المفردات", "title_en": "Fourth: Vocabulary", "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الفرنسية (لغة ثانية)"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of French Language Curriculum Development (L2)"
+    ]
+  },
+  {
+    "key": "german_l2",
+    "label_en": "German (L2)",
+    "label_ar": "اللغة الألمانية لغة ثانية",
+    "moe_catalog_labels": [
+      "اللغة الالمانية لغة ثانية",
+      "اللغة الألمانية لغة ثانية",
+      "German L2",
+      "Deutsch"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_second_language": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الاستماع",  "title_en": "First: Listening",  "count": 2, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القراءة",   "title_en": "Second: Reading",    "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: القواعد",   "title_en": "Third: Grammar",     "count": 3, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: المفردات", "title_en": "Fourth: Vocabulary", "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الألمانية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of German Language Curriculum Development"
+    ]
+  },
+  {
+    "key": "spanish_l2",
+    "label_en": "Spanish (L2)",
+    "label_ar": "اللغة الإسبانية لغة ثانية",
+    "moe_catalog_labels": [
+      "اللغة الاسبانية لغة ثانية",
+      "اللغة الإسبانية لغة ثانية",
+      "Spanish L2",
+      "Espanol"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_second_language": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الاستماع",  "title_en": "First: Listening",  "count": 2, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القراءة",   "title_en": "Second: Reading",    "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: القواعد",   "title_en": "Third: Grammar",     "count": 3, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: المفردات", "title_en": "Fourth: Vocabulary", "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الإسبانية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Spanish Language Curriculum Development"
+    ]
+  },
+  {
+    "key": "italian_l2",
+    "label_en": "Italian (L2)",
+    "label_ar": "اللغة الإيطالية لغة ثانية",
+    "moe_catalog_labels": [
+      "اللغة الايطالية لغة ثانية",
+      "اللغة الإيطالية لغة ثانية",
+      "Italian L2",
+      "Italiano"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_second_language": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الاستماع",  "title_en": "First: Listening",  "count": 2, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القراءة",   "title_en": "Second: Reading",    "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: القواعد",   "title_en": "Third: Grammar",     "count": 3, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: المفردات", "title_en": "Fourth: Vocabulary", "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الإيطالية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Italian Language Curriculum Development"
+    ]
+  },
+  {
+    "key": "chinese_l2",
+    "label_en": "Chinese (L2)",
+    "label_ar": "اللغة الصينية لغة ثانية",
+    "moe_catalog_labels": [
+      "اللغة الصينية لغة ثانية",
+      "Chinese L2"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "cjk",
+      "primary_direction": "ltr",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_second_language": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الاستماع",  "title_en": "First: Listening",  "count": 2, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: القراءة",   "title_en": "Second: Reading",    "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: الحروف",    "title_en": "Third: Characters",  "count": 3, "marks_per_question": 2 },
+      { "title_ar": "رابعًا: المفردات", "title_en": "Fourth: Vocabulary", "count": 2, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة اللغة الصينية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Chinese Language Curriculum Development"
+    ]
+  },
+  {
+    "key": "history",
+    "label_en": "History",
+    "label_ar": "التاريخ",
+    "moe_catalog_labels": [
+      "التاريخ",
+      "History"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_timelines": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: التاريخ القديم",   "title_en": "First: Ancient History",  "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: التاريخ الوسيط",  "title_en": "Second: Medieval History", "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: التاريخ الحديث",  "title_en": "Third: Modern History",   "count": 4, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة التاريخ"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of History Curriculum Development"
+    ]
+  },
+  {
+    "key": "geography",
+    "label_en": "Geography (Development)",
+    "label_ar": "جغرافيا التنمية",
+    "moe_catalog_labels": [
+      "جغرافيا التنمية",
+      "الجغرافيا",
+      "Geography"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_maps": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الجغرافيا الطبيعية", "title_en": "First: Physical Geography", "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: الجغرافيا البشرية",  "title_en": "Second: Human Geography",  "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: التنمية المستدامة", "title_en": "Third: Sustainable Development", "count": 4, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الجغرافيا"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Geography Curriculum Development"
+    ]
+  },
+  {
+    "key": "philosophy_logic",
+    "label_en": "Philosophy & Logic",
+    "label_ar": "الفلسفة والمنطق",
+    "moe_catalog_labels": [
+      "الفلسفة والمنطق",
+      "الفلسفة",
+      "Philosophy and Logic"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الفلسفة", "title_en": "First: Philosophy", "count": 5, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: المنطق",  "title_en": "Second: Logic",     "count": 5, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الفلسفة والمنطق"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Philosophy & Logic Curriculum Development"
+    ]
+  },
+  {
+    "key": "psychology_sociology",
+    "label_en": "Psychology & Sociology",
+    "label_ar": "علم النفس والاجتماع",
+    "moe_catalog_labels": [
+      "علم النفس والاجتماع",
+      "Psychology and Sociology"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: علم النفس",   "title_en": "First: Psychology", "count": 5, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: علم الاجتماع", "title_en": "Second: Sociology", "count": 5, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة علم النفس والاجتماع"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Psychology & Sociology Curriculum Development"
+    ]
+  },
+  {
+    "key": "religion_islamic",
+    "label_en": "Islamic Studies",
+    "label_ar": "التربية الدينية الإسلامية",
+    "moe_catalog_labels": [
+      "التربية الدينية الإسلامية",
+      "Islamic Studies"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_scripture_citations": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: القرآن والحديث", "title_en": "First: Qur'an & Hadith",   "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: الفقه والعقيدة", "title_en": "Second: Fiqh & Aqeedah",  "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: السيرة",        "title_en": "Third: Seerah",           "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة التربية الدينية الإسلامية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Islamic Studies Curriculum Development"
+    ]
+  },
+  {
+    "key": "religion_christian",
+    "label_en": "Christian Studies",
+    "label_ar": "التربية الدينية المسيحية",
+    "moe_catalog_labels": [
+      "التربية الدينية المسيحية",
+      "Christian Studies"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": true,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_scripture_citations": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الكتاب المقدس",   "title_en": "First: Scripture",       "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: العقيدة والعبادة", "title_en": "Second: Doctrine & Worship", "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: تاريخ الكنيسة",   "title_en": "Third: Church History",  "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة التربية الدينية المسيحية"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Christian Studies Curriculum Development"
+    ]
+  },
+  {
+    "key": "ict_ar",
+    "label_en": "ICT (Arabic)",
+    "label_ar": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات (عربي)",
+    "moe_catalog_labels": [
+      "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة العربية",
+      "الكمبيوتر",
+      "ICT Arabic"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": true,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_code_blocks": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: المفاهيم",        "title_en": "First: Concepts",       "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: قراءة الكود",     "title_en": "Second: Code Reading",  "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: التطبيقات",       "title_en": "Third: Applications",   "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الكمبيوتر وتكنولوجيا المعلومات"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of ICT Curriculum Development"
+    ]
+  },
+  {
+    "key": "ict_en",
+    "label_en": "ICT (English)",
+    "label_ar": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات (إنجليزي)",
+    "moe_catalog_labels": [
+      "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة الانجليزية",
+      "ICT English"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": true,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_code_blocks": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: المفاهيم",        "title_en": "First: Concepts",      "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: قراءة الكود",     "title_en": "Second: Code Reading", "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: التطبيقات",       "title_en": "Third: Applications",  "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة تكنولوجيا المعلومات"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of ICT Curriculum Development"
+    ]
+  },
+  {
+    "key": "programming_ai_ar",
+    "label_en": "Programming & AI (Arabic)",
+    "label_ar": "البرمجة والذكاء الاصطناعي (عربي)",
+    "moe_catalog_labels": [
+      "البرمجة والذكاء الاصطناعي باللغة العربية",
+      "Programming AI Arabic"
+    ],
+    "content_traits": {
+      "has_math": true,
+      "has_code": true,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_code_blocks": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: المفاهيم",          "title_en": "First: Concepts",       "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: قراءة الكود",       "title_en": "Second: Code Reading",  "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: كتابة الكود",       "title_en": "Third: Code Writing",   "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة البرمجة والذكاء الاصطناعي"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Programming & AI Curriculum Development"
+    ]
+  },
+  {
+    "key": "programming_ai_en",
+    "label_en": "Programming & AI (English)",
+    "label_ar": "البرمجة والذكاء الاصطناعي (إنجليزي)",
+    "moe_catalog_labels": [
+      "البرمجة والذكاء الاصطناعي باللغة الانجليزية",
+      "Programming AI English"
+    ],
+    "content_traits": {
+      "has_math": true,
+      "has_code": true,
+      "primary_script": "latin",
+      "primary_direction": "ltr",
+      "has_diagrams": true,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "has_code_blocks": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: المفاهيم",          "title_en": "First: Concepts",       "count": 3, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: قراءة الكود",       "title_en": "Second: Code Reading",  "count": 4, "marks_per_question": 2 },
+      { "title_ar": "ثالثًا: كتابة الكود",       "title_en": "Third: Code Writing",   "count": 3, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة البرمجة والذكاء الاصطناعي"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Programming & AI Curriculum Development"
+    ]
+  },
+  {
+    "key": "family_skills",
+    "label_en": "Family Management & Entrepreneurship",
+    "label_ar": "مهارات إدارة الأسرة وريادة الأعمال",
+    "moe_catalog_labels": [
+      "مهارات إدارة الأسرة و ريادة الأعمال",
+      "مهارات إدارة الأسرة وريادة الأعمال",
+      "Family Management"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_project_based": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: إدارة الأسرة",          "title_en": "First: Family Management", "count": 5, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: ريادة الأعمال",        "title_en": "Second: Entrepreneurship", "count": 5, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة إدارة الأسرة وريادة الأعمال"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Family Management & Entrepreneurship Curriculum Development"
+    ]
+  },
+  {
+    "key": "agriculture_skills",
+    "label_en": "Agriculture & Entrepreneurship",
+    "label_ar": "مهارات الزراعة وريادة الأعمال",
+    "moe_catalog_labels": [
+      "مهارات الزراعة وريادة الاعمال",
+      "مهارات الزراعة وريادة الأعمال",
+      "Agriculture Skills"
+    ],
+    "content_traits": {
+      "has_math": false,
+      "has_code": false,
+      "primary_script": "arabic",
+      "primary_direction": "rtl",
+      "has_diagrams": false,
+      "has_quotations": false,
+      "has_formula_boxes": false,
+      "has_math_rendering": false,
+      "is_project_based": true
+    },
+    "default_topic_sections": [
+      { "title_ar": "أولاً: الزراعة",                "title_en": "First: Agriculture",       "count": 5, "marks_per_question": 2 },
+      { "title_ar": "ثانيًا: ريادة الأعمال",        "title_en": "Second: Entrepreneurship", "count": 5, "marks_per_question": 2 }
+    ],
+    "letterhead_lines_ar": [
+      "وزارة التربية والتعليم والتعليم الفني",
+      "إدارة تنمية مادة الزراعة وريادة الأعمال"
+    ],
+    "letterhead_lines_en": [
+      "Ministry of Education and Technical Education",
+      "Department of Agriculture & Entrepreneurship Curriculum Development"
+    ]
+  }
+]

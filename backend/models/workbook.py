@@ -17,6 +17,11 @@ class Workbook(Base):
     book_id: Mapped[int] = mapped_column(
         Integer, ForeignKey("books.id"), nullable=False
     )
+    # Denormalized from the parent Book at creation time so workbook
+    # generation is decoupled from book deletion / subject rename.
+    subject_key: Mapped[str | None] = mapped_column(
+        String(40), ForeignKey("subjects.key"), nullable=True, default="math"
+    )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     config_json: Mapped[str] = mapped_column(Text, nullable=False)
     filename: Mapped[str] = mapped_column(String(255), nullable=False, default="")

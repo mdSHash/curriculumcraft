@@ -14,6 +14,7 @@ import models  # noqa: F401 — registers all ORM models with Base before create
 from routers.books import router as books_router
 from routers.exams import router as exams_router
 from routers.moe_library import router as moe_library_router
+from routers.subjects import router as subjects_router
 from routers.workbooks import router as workbooks_router
 from utils.file_utils import ensure_directories
 
@@ -69,6 +70,7 @@ app.add_middleware(
 app.include_router(books_router, prefix="/api")
 app.include_router(exams_router, prefix="/api")
 app.include_router(moe_library_router, prefix="/api")
+app.include_router(subjects_router, prefix="/api")
 app.include_router(workbooks_router, prefix="/api")
 
 

@@ -17,6 +17,11 @@ class Exam(Base):
     book_id: Mapped[int] = mapped_column(
         Integer, ForeignKey("books.id"), nullable=False
     )
+    # Denormalized from parent Book at creation time so exam generation
+    # is decoupled from book deletion / subject rename.
+    subject_key: Mapped[str | None] = mapped_column(
+        String(40), ForeignKey("subjects.key"), nullable=True, default="math"
+    )
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     exam_type: Mapped[str] = mapped_column(
         String(20), nullable=False, default="quiz"
