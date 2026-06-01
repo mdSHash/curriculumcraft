@@ -70,7 +70,7 @@ try {
 
     Write-Host ''
     if ($pushFailed) {
-        Write-Error "Push to HF Space FAILED (git push exited $LASTEXITCODE). Scroll up for the upstream error from huggingface.co — typically a YAML metadata rejection in deploy/hf/README.md (e.g. short_description over 60 chars). Fix the issue and re-run."
+        Write-Error "Push to HF Space FAILED (git push exited $LASTEXITCODE). Scroll up for the upstream error from huggingface.co -- typically a YAML metadata rejection in deploy/hf/README.md (e.g. short_description over 60 chars). Fix the issue and re-run."
         exit 1
     }
     Write-Host "OK Pushed. Build will start automatically."
