@@ -37,35 +37,77 @@ export function useWorkbooks() {
     }
   }
 
-  const pollStatus = async (workbookId, onReady) => {
-    // Clear any existing poll
+  const pollStatus = (workbookId, onReady, onTransientError) => {
+    // Robust polling with exponential backoff on transient errors.
+    // Pre-Phase-4 behavior was: ANY thrown error stopped polling, which
+    // meant a single 502 during HF Space cold-start (30-60s) would freeze
+    // the UI on 'generating' forever even though the backend completed.
+    //
+    // New behavior:
+    //   - Successful tick: reset backoff to base (2s).
+    //   - Transient error: exponential backoff 2 → 4 → 8 → 16 → 30s cap,
+    //     up to 5 consecutive failures. Caller is notified via
+    //     onTransientError so the UI can show 'reconnecting...'.
+    //   - 6th consecutive failure: stop polling and report error.
+    //   - Status='ready' or 'error': stop polling and report.
+
     if (pollIntervalRef.current) {
-      clearInterval(pollIntervalRef.current)
+      clearTimeout(pollIntervalRef.current)
+      pollIntervalRef.current = null
     }
 
-    pollIntervalRef.current = setInterval(async () => {
+    const BASE_DELAY = 2000
+    const MAX_DELAY = 30000
+    const MAX_FAILURES = 5
+    let consecutiveFailures = 0
+    let cancelled = false
+
+    const tick = async () => {
+      if (cancelled) return
       try {
         const res = await workbooksApi.getStatus(workbookId)
+        consecutiveFailures = 0
         const { status } = res.data
 
         if (status === 'ready' || status === 'error') {
-          clearInterval(pollIntervalRef.current)
           pollIntervalRef.current = null
-
-          // Update workbook in list
           setWorkbooks((prev) =>
             prev.map((wb) => (wb.id === workbookId ? { ...wb, status } : wb))
           )
-
-          if (onReady) {
-            onReady(res.data)
-          }
+          if (onReady) onReady(res.data)
+          return
         }
+
+        // Still generating: reschedule at base interval.
+        pollIntervalRef.current = setTimeout(tick, BASE_DELAY)
       } catch (err) {
-        clearInterval(pollIntervalRef.current)
+        consecutiveFailures += 1
+        if (consecutiveFailures > MAX_FAILURES) {
+          pollIntervalRef.current = null
+          if (onReady) onReady({ id: workbookId, status: 'error', error: 'Polling gave up after repeated failures' })
+          return
+        }
+        // Notify caller so it can render 'reconnecting…' without aborting.
+        if (onTransientError) {
+          try { onTransientError(consecutiveFailures, err) } catch { /* swallow */ }
+        }
+        // Exponential backoff: 2 → 4 → 8 → 16 → 30 (capped).
+        const delay = Math.min(BASE_DELAY * Math.pow(2, consecutiveFailures - 1), MAX_DELAY)
+        pollIntervalRef.current = setTimeout(tick, delay)
+      }
+    }
+
+    pollIntervalRef.current = setTimeout(tick, BASE_DELAY)
+
+    // Returned cleanup function lets callers cancel the poll explicitly
+    // (e.g. on component unmount) without relying on ref teardown.
+    return () => {
+      cancelled = true
+      if (pollIntervalRef.current) {
+        clearTimeout(pollIntervalRef.current)
         pollIntervalRef.current = null
       }
-    }, 2000)
+    }
   }
 
   const downloadWorkbook = async (workbookId) => {
@@ -102,7 +144,8 @@ export function useWorkbooks() {
     fetchWorkbooks()
     return () => {
       if (pollIntervalRef.current) {
-        clearInterval(pollIntervalRef.current)
+        clearTimeout(pollIntervalRef.current)
+        pollIntervalRef.current = null
       }
     }
   }, [])
