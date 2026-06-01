@@ -14,9 +14,16 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# Configurable via repo Variables (Settings → Secrets and variables → Actions → Variables):
+#   PAGES_BASE       — Pages base path. Default '/curriculumcraft/'.
+#   HF_BACKEND_URL   — Hugging Face Space hostname for VITE_API_BASE_URL.
+#                      Default 'https://scriptmaker-curriculumcraft.hf.space'.
+# Forks should override these if they deploy under a different repo name
+# or HF Space slug.
+
 jobs:
   build:
-    name: Build (Vite, base=/mathcraft/)
+    name: Build (Vite, Pages target)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,8 +43,9 @@ jobs:
       - name: Build for GitHub Pages
         working-directory: frontend
         env:
-          MATHCRAFT_BUILD_TARGET: pages
-          VITE_API_BASE_URL: https://scriptmaker-mathcraft.hf.space
+          APP_BUILD_TARGET: pages
+          VITE_PAGES_BASE: ${{ vars.PAGES_BASE || '/curriculumcraft/' }}
+          VITE_API_BASE_URL: ${{ vars.HF_BACKEND_URL || 'https://scriptmaker-curriculumcraft.hf.space' }}
         run: npm run build
 
       - name: Disable Jekyll

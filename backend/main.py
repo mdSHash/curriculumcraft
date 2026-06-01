@@ -1,4 +1,13 @@
-"""MathCraft API — FastAPI application entry point."""
+"""CurriculumCraft API — FastAPI application entry point.
+
+Multi-subject Egyptian curriculum workbook + exam generator. Backend
+serves the React frontend (GitHub Pages) and is responsible for:
+  - Book ingestion (PDF/DOCX -> text -> chunks -> FAISS)
+  - RAG retrieval (FAISS + BM25 + MMR)
+  - LLM generation (Gemini)
+  - DOCX assembly (math via OMML, plain for languages, RTL-aware)
+  - MOE eLibrary integration across all 24 canonical subjects
+"""
 
 import logging
 import sys
@@ -39,21 +48,24 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """Application lifespan: startup and shutdown events."""
     # Startup
-    logger.info("MathCraft API starting up...")
+    logger.info("CurriculumCraft API starting up...")
     ensure_directories()
     create_tables()
-    logger.info("MathCraft API ready.")
+    logger.info("CurriculumCraft API ready.")
     yield
     # Shutdown (nothing to clean up currently)
-    logger.info("MathCraft API shutting down.")
+    logger.info("CurriculumCraft API shutting down.")
 
 
 settings = get_settings()
 
 app = FastAPI(
-    title="MathCraft API",
-    version="1.0.0",
-    description="Backend API for MathCraft — AI-powered math workbook generator",
+    title="CurriculumCraft API",
+    version="2.0.0",
+    description=(
+        "Backend API for CurriculumCraft — AI-powered curriculum workbook "
+        "generator covering all 24 canonical Egyptian MOE subjects."
+    ),
     lifespan=lifespan,
 )
 

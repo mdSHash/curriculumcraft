@@ -55,7 +55,7 @@ export default function BackendSettingsModal({ isOpen, onClose, onSaved }) {
     <Modal isOpen={isOpen} onClose={onClose} title="Connect to your backend">
       <div className="space-y-4">
         <p className="text-sm text-gray-600">
-          Paste the public URL of your locally-running MathCraft backend (for example, a{' '}
+          Paste the public URL of your locally-running CurriculumCraft backend (for example, a{' '}
           <code className="px-1 py-0.5 bg-gray-100 rounded text-xs">*.trycloudflare.com</code>{' '}
           tunnel). The setting is stored in this browser only.
         </p>

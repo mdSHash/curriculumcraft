@@ -8,13 +8,22 @@ const LanguageContext = createContext()
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {
-    return localStorage.getItem('mathcraft-lang') || 'ar'
+    // One-time migration of pre-rename language preference key.
+    const legacy = localStorage.getItem('mathcraft-lang')
+    const current = localStorage.getItem('curriculumcraft-lang')
+    if (legacy && !current) {
+      localStorage.setItem('curriculumcraft-lang', legacy)
+      localStorage.removeItem('mathcraft-lang')
+    } else if (legacy) {
+      localStorage.removeItem('mathcraft-lang')
+    }
+    return localStorage.getItem('curriculumcraft-lang') || 'ar'
   })
 
   const isRTL = lang === 'ar'
 
   useEffect(() => {
-    localStorage.setItem('mathcraft-lang', lang)
+    localStorage.setItem('curriculumcraft-lang', lang)
     document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr')
     document.documentElement.setAttribute('lang', lang)
   }, [lang, isRTL])

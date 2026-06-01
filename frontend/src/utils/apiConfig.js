@@ -5,8 +5,36 @@
 //   1. localStorage override (set via the in-app "Connect backend" UI)
 //   2. VITE_API_BASE_URL build-time env (for fixed self-hosted deploys)
 //   3. Same-origin (local dev — Vite proxy forwards /api → :8000)
+//
+// localStorage key is derived from BRAND.slug so renaming the product
+// doesn't strand existing users on a stale URL. A one-time migration
+// copies any value at the legacy `mathcraft.*` key into the new one.
 
-const STORAGE_KEY = 'mathcraft.apiBaseUrl'
+import { BRAND } from '../config/brand'
+
+const STORAGE_KEY = `${BRAND.slug}.apiBaseUrl`
+const LEGACY_STORAGE_KEY = `${BRAND.legacySlug}.apiBaseUrl`
+
+let _migrated = false
+
+function migrateLegacyKey() {
+  // Run once per session. Idempotent — once the legacy key is moved or
+  // removed, re-running is a no-op.
+  if (_migrated || typeof window === 'undefined') return
+  _migrated = true
+  try {
+    const legacy = window.localStorage.getItem(LEGACY_STORAGE_KEY)
+    const current = window.localStorage.getItem(STORAGE_KEY)
+    if (legacy && !current) {
+      window.localStorage.setItem(STORAGE_KEY, legacy)
+    }
+    if (legacy) {
+      window.localStorage.removeItem(LEGACY_STORAGE_KEY)
+    }
+  } catch {
+    // localStorage may be unavailable (private mode, quota, etc.) — fail open.
+  }
+}
 
 function strip(url) {
   return (url || '').trim().replace(/\/+$/, '')
@@ -14,6 +42,7 @@ function strip(url) {
 
 export function getOverrideUrl() {
   if (typeof window === 'undefined') return ''
+  migrateLegacyKey()
   return strip(window.localStorage.getItem(STORAGE_KEY) || '')
 }
 
@@ -27,6 +56,7 @@ export function getApiBaseUrl() {
 
 export function setApiBaseUrl(url) {
   if (typeof window === 'undefined') return
+  migrateLegacyKey()
   const cleaned = strip(url)
   if (!cleaned) {
     window.localStorage.removeItem(STORAGE_KEY)
@@ -37,6 +67,7 @@ export function setApiBaseUrl(url) {
 
 export function clearApiBaseUrl() {
   if (typeof window === 'undefined') return
+  migrateLegacyKey()
   window.localStorage.removeItem(STORAGE_KEY)
 }
 

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { BookOpen, Download, Check, Loader2, X, Library, GraduationCap } from 'lucide-react'
 import { moeLibraryApi } from '../../api/client'
 import { useLanguage } from '../../i18n/LanguageContext'
+import SubjectPicker from '../common/SubjectPicker'
 import toast from 'react-hot-toast'
 
 const STAGES = [
@@ -17,6 +18,9 @@ export default function MOELibraryBrowser({ isOpen, onClose, onImportSuccess }) 
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(false)
   const [selectedStage, setSelectedStage] = useState(null)
+  // null = all 24 subjects across the catalog. The default is intentionally
+  // "all" so users discover the multi-subject scope on first open.
+  const [selectedSubject, setSelectedSubject] = useState(null)
   const [importingIds, setImportingIds] = useState(new Set())
   const [importedIds, setImportedIds] = useState(new Set())
   const [error, setError] = useState(null)
@@ -25,9 +29,7 @@ export default function MOELibraryBrowser({ isOpen, onClose, onImportSuccess }) 
     setLoading(true)
     setError(null)
     try {
-      const params = { subject: 'math' }
-      if (selectedStage) params.stage = selectedStage
-      const res = await moeLibraryApi.getBooks('math', null, selectedStage)
+      const res = await moeLibraryApi.getBooks(selectedSubject, null, selectedStage)
       setBooks(res.data || [])
     } catch (err) {
       setError(t('moeLibrary.loadError'))
@@ -35,7 +37,7 @@ export default function MOELibraryBrowser({ isOpen, onClose, onImportSuccess }) 
     } finally {
       setLoading(false)
     }
-  }, [selectedStage, t])
+  }, [selectedStage, selectedSubject, t])
 
   useEffect(() => {
     if (isOpen) {
@@ -112,6 +114,17 @@ export default function MOELibraryBrowser({ isOpen, onClose, onImportSuccess }) 
             >
               <X size={20} className="text-gray-500" />
             </button>
+          </div>
+
+          {/* Subject Filter (canonical 24-key taxonomy) */}
+          <div className="px-6 pt-3 pb-2 border-b border-surface-100">
+            <SubjectPicker
+              value={selectedSubject}
+              onChange={setSelectedSubject}
+              allowAll
+              compact
+              includeBookCount
+            />
           </div>
 
           {/* Stage Filter Tabs */}

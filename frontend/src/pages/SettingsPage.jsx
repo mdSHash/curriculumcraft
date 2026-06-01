@@ -207,7 +207,7 @@ export default function SettingsPage() {
         <ul className="space-y-2 text-sm">
           <li>
             <a
-              href="https://github.com/mdSHash/mathcraft"
+              href="https://github.com/mdSHash/curriculumcraft"
               target="_blank"
               rel="noreferrer"
               className="text-blue-600 hover:underline"
@@ -217,7 +217,7 @@ export default function SettingsPage() {
           </li>
           <li>
             <a
-              href="https://github.com/mdSHash/mathcraft/blob/main/HOSTING.md"
+              href="https://github.com/mdSHash/curriculumcraft/blob/main/HOSTING.md"
               target="_blank"
               rel="noreferrer"
               className="text-blue-600 hover:underline"
@@ -227,7 +227,7 @@ export default function SettingsPage() {
           </li>
           <li>
             <a
-              href="https://huggingface.co/spaces/ScriptMaker/mathcraft"
+              href="https://huggingface.co/spaces/ScriptMaker/curriculumcraft"
               target="_blank"
               rel="noreferrer"
               className="text-blue-600 hover:underline"

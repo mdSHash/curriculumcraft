@@ -116,7 +116,7 @@ export default function DemoBanner() {
             The hosted backend at <code className="px-1 py-0.5 bg-amber-100 rounded text-xs">{activeUrl || '(none configured)'}</code> isn't responding.
             It may be waking from sleep — try again in ~30 seconds — or you can{' '}
             <a
-              href="https://github.com/mdSHash/mathcraft/blob/main/HOSTING.md"
+              href="https://github.com/mdSHash/curriculumcraft/blob/main/HOSTING.md"
               target="_blank"
               rel="noreferrer"
               className="underline font-medium hover:text-amber-700"

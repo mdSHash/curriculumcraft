@@ -47,17 +47,42 @@ export const examsApi = {
   delete: (examId) => api.delete(`/exams/${examId}`),
 }
 
-// MOE eLibrary API
+// MOE eLibrary API. `subject` is now an optional canonical key (e.g. 'math',
+// 'arabic_lang', 'physics') OR null/undefined to span all subjects in the
+// catalog. Pre-Phase-2 callers that passed 'math' explicitly keep working.
+function moeParams(subject, grade, stage, week) {
+  const p = {}
+  if (subject) p.subject = subject
+  if (grade) p.grade = grade
+  if (stage) p.stage = stage
+  if (week !== undefined && week !== null) p.week = week
+  return p
+}
+
 export const moeLibraryApi = {
-  getBooks: (subject = 'math', grade, stage) =>
-    api.get('/moe-library/books', { params: { subject, grade, stage } }),
-  getStages: () => api.get('/moe-library/stages'),
+  getBooks: (subject = null, grade = null, stage = null) =>
+    api.get('/moe-library/books', { params: moeParams(subject, grade, stage) }),
+  getStages: (subject = null) =>
+    api.get('/moe-library/stages', { params: moeParams(subject) }),
+  getCatalogSubjects: () => api.get('/moe-library/catalog-subjects'),
   importBook: (bookId) => api.post('/moe-library/import', { book_id: bookId }),
 
   // Official weekly assessments (cha/books.json)
-  getAssessments: ({ subject = 'math', grade, stage, week } = {}) =>
-    api.get('/moe-library/assessments', { params: { subject, grade, stage, week } }),
-  getAssessmentGrades: () => api.get('/moe-library/assessments/grades'),
+  getAssessments: ({ subject = null, grade = null, stage = null, week = null } = {}) =>
+    api.get('/moe-library/assessments', {
+      params: moeParams(subject, grade, stage, week),
+    }),
+  getAssessmentGrades: (subject = null) =>
+    api.get('/moe-library/assessments/grades', { params: moeParams(subject) }),
+}
+
+// Canonical Subject taxonomy (the 24-key list seeded from
+// backend/seeds/subjects.json). Used by SubjectPicker and the wizard
+// to render subject-aware UI.
+export const subjectsApi = {
+  list: () => api.get('/subjects'),
+  get: (key) => api.get(`/subjects/${key}`),
+  getConfig: (key) => api.get(`/subjects/${key}/config`),
 }
 
 export default api
