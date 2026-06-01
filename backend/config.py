@@ -74,8 +74,16 @@ class Settings(BaseSettings):
     # Limits
     MAX_PDF_SIZE_MB: int = 50
 
-    # CORS
-    CORS_ORIGINS: str = "http://localhost:5173"
+    # CORS — origins allowed to call this API from a browser.
+    # Default includes the GitHub Pages frontend hostname so out-of-the-box
+    # deployments work even if no env var is set on the Space. Override
+    # via CORS_ORIGINS env var (comma-separated) if hosting the frontend
+    # at a different origin.
+    CORS_ORIGINS: str = (
+        "http://localhost:5173,"
+        "http://localhost:3000,"
+        "https://mdshash.github.io"
+    )
 
     @property
     def cors_origins_list(self) -> list[str]:
