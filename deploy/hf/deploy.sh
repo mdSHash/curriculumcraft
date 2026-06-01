@@ -73,7 +73,11 @@ git config user.name  "${HF_USER}"
 git add .
 git commit -q -m "Deploy CurriculumCraft backend"
 git remote add origin "${GIT_URL}"
-git push -f origin main
+if ! git push -f origin main; then
+    echo
+    echo "✗ Push to HF Space FAILED. Scroll up for the upstream error from huggingface.co — typically a YAML metadata rejection in deploy/hf/README.md (e.g. short_description over 60 chars). Fix the issue and re-run." >&2
+    exit 1
+fi
 
 echo
 echo "✓ Pushed. Build will start automatically."

@@ -54,6 +54,7 @@ try {
     # 3. Init git + push.
     Write-Host "-> Pushing to HF..."
     Push-Location $StagingDir.FullName
+    $pushFailed = $false
     try {
         git init -q -b main
         git config user.email "$($env:HF_USER)@users.noreply.huggingface.co"
@@ -62,11 +63,16 @@ try {
         git commit -q -m 'Deploy CurriculumCraft backend'
         git remote add origin $GitUrl
         git push -f origin main
+        if ($LASTEXITCODE -ne 0) { $pushFailed = $true }
     } finally {
         Pop-Location
     }
 
     Write-Host ''
+    if ($pushFailed) {
+        Write-Error "Push to HF Space FAILED (git push exited $LASTEXITCODE). Scroll up for the upstream error from huggingface.co — typically a YAML metadata rejection in deploy/hf/README.md (e.g. short_description over 60 chars). Fix the issue and re-run."
+        exit 1
+    }
     Write-Host "OK Pushed. Build will start automatically."
     Write-Host "   Watch logs:           $SpaceUrl"
     Write-Host "   Health (when ready):  https://$($env:HF_USER)-$HfSpace.hf.space/api/health"

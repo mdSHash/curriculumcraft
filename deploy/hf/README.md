@@ -6,7 +6,7 @@ colorTo: blue
 sdk: docker
 app_port: 8000
 pinned: false
-short_description: Egyptian-curriculum workbook & exam generator API across all 24 MOE subjects.
+short_description: Egyptian curriculum workbook & exam generator API.
 ---
 
 # CurriculumCraft API
