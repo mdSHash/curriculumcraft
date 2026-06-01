@@ -1,4 +1,4 @@
-# Deploy the MathCraft backend to Hugging Face Spaces (Windows / PowerShell).
+# Deploy the CurriculumCraft backend to Hugging Face Spaces (Windows / PowerShell).
 #
 # Usage:
 #   $env:HF_TOKEN = "hf_xxx"
@@ -14,7 +14,7 @@ if (-not $env:HF_TOKEN -or -not $env:HF_USER) {
     exit 1
 }
 
-$HfSpace = if ($env:HF_SPACE) { $env:HF_SPACE } else { 'mathcraft' }
+$HfSpace = if ($env:HF_SPACE) { $env:HF_SPACE } else { 'curriculumcraft' }
 $RepoId  = "$($env:HF_USER)/$HfSpace"
 $SpaceUrl = "https://huggingface.co/spaces/$RepoId"
 $GitUrl   = "https://$($env:HF_USER):$($env:HF_TOKEN)@huggingface.co/spaces/$RepoId"
@@ -59,7 +59,7 @@ try {
         git config user.email "$($env:HF_USER)@users.noreply.huggingface.co"
         git config user.name  "$($env:HF_USER)"
         git add .
-        git commit -q -m 'Deploy MathCraft backend'
+        git commit -q -m 'Deploy CurriculumCraft backend'
         git remote add origin $GitUrl
         git push -f origin main
     } finally {

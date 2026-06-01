@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Deploy the MathCraft backend to Hugging Face Spaces.
+# Deploy the CurriculumCraft backend to Hugging Face Spaces.
 #
 # Prerequisites:
 #   - HF_TOKEN  exported   (write-access token from https://huggingface.co/settings/tokens)
 #   - HF_USER   exported   (your HF username)
-#   - HF_SPACE  optional   (Space repo name; defaults to "mathcraft")
+#   - HF_SPACE  optional   (Space repo name; defaults to "curriculumcraft")
 #
 # Usage:
 #   HF_TOKEN=hf_xxx HF_USER=yourname ./deploy/hf/deploy.sh
@@ -25,7 +25,7 @@ if [[ -z "${HF_TOKEN:-}" || -z "${HF_USER:-}" ]]; then
     exit 1
 fi
 
-HF_SPACE="${HF_SPACE:-mathcraft}"
+HF_SPACE="${HF_SPACE:-curriculumcraft}"
 REPO_ID="${HF_USER}/${HF_SPACE}"
 SPACE_URL="https://huggingface.co/spaces/${REPO_ID}"
 GIT_URL="https://${HF_USER}:${HF_TOKEN}@huggingface.co/spaces/${REPO_ID}"
@@ -71,7 +71,7 @@ git init -q -b main
 git config user.email "${HF_USER}@users.noreply.huggingface.co"
 git config user.name  "${HF_USER}"
 git add .
-git commit -q -m "Deploy MathCraft backend"
+git commit -q -m "Deploy CurriculumCraft backend"
 git remote add origin "${GIT_URL}"
 git push -f origin main
 
