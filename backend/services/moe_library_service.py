@@ -80,6 +80,18 @@ class MOELibraryService:
         Path(__file__).parent.parent / "data" / "moe_assessment_pdfs"
     )
 
+    # Bundled fallback fixtures shipped with the repo. Used when the live
+    # upstream fetch fails (typically because the deploy's egress IPs are
+    # rejected by MOE's Azure-fronted edge). Refreshed by running
+    # `python backend/scripts/refresh_moe_fallback.py` from a development
+    # machine that CAN reach MOE upstream, then committing the JSON files.
+    BOOKS_FALLBACK = (
+        Path(__file__).parent.parent / "seeds" / "moe_books_fallback.json"
+    )
+    ASSESSMENTS_FALLBACK = (
+        Path(__file__).parent.parent / "seeds" / "moe_assessments_fallback.json"
+    )
+
     # ARRAffinity sticky-session cookies. The MOE eLibrary's Azure-fronted
     # edge enforces these for BOTH /books/books.json AND /cha/books.json
     # when called from server IPs (Hugging Face Spaces, datacenters, etc.).
@@ -265,6 +277,37 @@ class MOELibraryService:
         )
         logger.info(f"Cached {len(books)} entries → {path.name}")
 
+    def _load_fallback(self, path: Path, label: str) -> list[dict]:
+        """Load a bundled fallback catalog when upstream is unreachable.
+
+        Returns an empty list (rather than raising) if the fallback file
+        is missing or malformed — surfaces as "no books found" in the UI
+        instead of a 5xx, which is the correct UX for an offline-mode app.
+        """
+        if not path.exists():
+            logger.error(
+                "MOE %s upstream failed AND fallback fixture %s missing — "
+                "returning empty catalog. Run "
+                "scripts/refresh_moe_fallback.py from a machine that can "
+                "reach MOE upstream to regenerate it.",
+                label, path,
+            )
+            return []
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(data, list):
+                logger.warning(
+                    "MOE %s using BUNDLED FALLBACK fixture (%d records from %s). "
+                    "Upstream is unreachable from this deploy's IP.",
+                    label, len(data), path.name,
+                )
+                return data
+            logger.error("MOE %s fallback fixture is not a JSON array", label)
+            return []
+        except (json.JSONDecodeError, OSError) as e:
+            logger.error("MOE %s fallback load failed: %s", label, e)
+            return []
+
     # ─── Subject matching ───────────────────────────────────────────────────
 
     def _entry_matches_subject(
@@ -306,19 +349,24 @@ class MOELibraryService:
             return cached
 
         logger.info("Fetching MOE eLibrary catalog from /books/books.json")
+        used_fallback = False
         try:
             books_raw = await self._fetch_json_with_session(
                 json_url=self.BOOKS_API,
                 warmup_url=f"{self.BASE_URL}/books/",
                 json_headers=self._client_headers,
             )
-        except httpx.HTTPStatusError as e:
-            raise RuntimeError(f"MOE eLibrary API error: {e.response.status_code}")
-        except httpx.RequestError as e:
-            raise RuntimeError(f"Failed to connect to MOE eLibrary: {e}")
-        except json.JSONDecodeError:
-            logger.error("MOE /books/books.json returned invalid JSON.")
-            raise RuntimeError("MOE eLibrary returned invalid data.")
+        except (httpx.HTTPStatusError, httpx.RequestError, json.JSONDecodeError) as e:
+            # Upstream rejected (most often: 403 from MOE's edge for cloud
+            # IPs) or network failure. Fall back to the bundled fixture so
+            # the deployed app stays functional even if MOE blocks our IP
+            # range entirely.
+            logger.warning(
+                "MOE upstream /books/books.json failed (%s: %s); using bundled fallback.",
+                type(e).__name__, e,
+            )
+            books_raw = self._load_fallback(self.BOOKS_FALLBACK, "books")
+            used_fallback = True
 
         books = []
         for book in books_raw:
@@ -449,15 +497,12 @@ class MOELibraryService:
                 warmup_url=f"{self.BASE_URL}/cha/",
                 json_headers=self._assessment_headers,
             )
-        except httpx.HTTPStatusError as e:
-            raise RuntimeError(
-                f"MOE eLibrary assessments API error: {e.response.status_code}"
+        except (httpx.HTTPStatusError, httpx.RequestError, json.JSONDecodeError) as e:
+            logger.warning(
+                "MOE upstream /cha/books.json failed (%s: %s); using bundled fallback.",
+                type(e).__name__, e,
             )
-        except httpx.RequestError as e:
-            raise RuntimeError(f"Failed to connect to MOE assessments: {e}")
-        except json.JSONDecodeError:
-            logger.error("MOE assessments API returned invalid JSON.")
-            raise RuntimeError("MOE assessments returned invalid data.")
+            items_raw = self._load_fallback(self.ASSESSMENTS_FALLBACK, "assessments")
 
         items = []
         for item in items_raw:

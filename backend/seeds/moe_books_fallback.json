@@ -1,0 +1,2288 @@
+[
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم المتكاملة باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/integratedscience_FR_1_Secondary_TR2.pdf",
+    "id": "ea0b0768ebab"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكيمياء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Chemistry_FR_2_Secondary_TR2.pdf",
+    "id": "0d95c4cf23ba"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوى أول",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG1/Term2/StudentBook/Discovery_E_KG1_TR1_2.pdf",
+    "id": "f0814afec01a"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوى أول",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG1/Term2/StudentBook/Discovery_AR_KG1_TR1_2.pdf",
+    "id": "80e7fcc24da9"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوى أول",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG1/Term2/StudentBook/Discovery_F_KG1_TR1_2.pdf",
+    "id": "bf8cea008d51"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوى أول",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG1/Term2/StudentBook/English_Kg1_Tr2.pdf",
+    "id": "2ee06dc17736"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوى أول",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG1/Term2/StudentBook/Arabic_Kg1_Tr2.pdf",
+    "id": "d8efc5b91380"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوي ثان",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG2/Term2/StudentBook/Discovery_E_KG2_TR1_2.pdf",
+    "id": "65aed5648bd8"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوي ثان",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG2/Term2/StudentBook/Discovery_AR_KG2_TR1_2.pdf",
+    "id": "4c0905b08c63"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوي ثان",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG2/Term2/StudentBook/Discovery_F_KG2_TR1_2.pdf",
+    "id": "0999ffa18b33"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوي ثان",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG2/Term2/StudentBook/English_Kg2_Tr2.pdf",
+    "id": "314fd60f8bed"
+  },
+  {
+    "stage": "رياض الاطفال",
+    "grade": "مستوي ثان",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/KG/KG2/Term2/StudentBook/Arabic_Kg2_Tr2.pdf",
+    "id": "230f32d9c22a"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Discovery_E_prim1_TR1_2.pdf",
+    "id": "599b7d8c28e1"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Discovery_AR_prim1_TR1_2.pdf",
+    "id": "05fa0673f8e5"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Discovery_F_prim1_TR1_2.pdf",
+    "id": "a39de75dfd38"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Islamic_prim1_Tr2.pdf",
+    "id": "4cb7a450bcb6"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/CH_Prim1_T2_.pdf",
+    "id": "0dcfdf625076"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Math_EN_prim1_Tr2.pdf",
+    "id": "c9e4d8a90d7b"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Math_AR_Prim1_T2.pdf",
+    "id": "4ee7d8dda74b"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/English_Prim1_Tr2.pdf",
+    "id": "0930360416c4"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Arabic_Prim1_T2.pdf",
+    "id": "207e9ce4ab2d"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Discovery_E_prim2_TR1_2.pdf",
+    "id": "45d2d3175e6b"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Discovery_AR_prim2_TR1_2.pdf",
+    "id": "9ce150c4a23b"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Discovery_F_Prim2_TR1_2.pdf",
+    "id": "7713cc075bcf"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/islamic_prim2_tr2.pdf",
+    "id": "6329b8945b27"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/CH_Prim2_T2_.pdf",
+    "id": "836d00ba2bd2"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Math_En_prim2_Tr2.pdf",
+    "id": "a7cb98912852"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Math_AR_prim2_TR2.pdf",
+    "id": "b7d3af260f3d"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Math_Fr_prim2_Tr2.pdf",
+    "id": "ea5dbf5104a7"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/English_Prim2_Tr2.pdf",
+    "id": "a6e84e4b6bc1"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثاني الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary2/Term2/StudentBook/Arabic_Prim2_T2.pdf",
+    "id": "0d66b5a1efdd"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Discovery_E_prim3_TR1_2.pdf",
+    "id": "92a338fd69d9"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Discovery_AR_prim3_TR1_2.pdf",
+    "id": "9cf1dfc8bed9"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اكتشف باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Discovery_FR_PRIM_3_TR1_2.pdf",
+    "id": "9f68fe8ababd"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Islamic_prim3_Tr2.pdf",
+    "id": "ed7c7c1f5eee"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Chrestian_Prim3_Tr2.pdf",
+    "id": "019a70837b25"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Math_EN_prim3_Tr2.pdf",
+    "id": "87a3046fe7da"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Math_AR_prim3_TR2.pdf",
+    "id": "fae4287a85e8"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Math_FR_prim3_Tr2.pdf",
+    "id": "fc5ebf8a40a6"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/English_Prim3_Tr2.pdf",
+    "id": "377516880aca"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الثالث الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary3/Term2/StudentBook/Arabic_Prim3_TR2.pdf",
+    "id": "4e2ee29ff676"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Islamic_prim4_TR2.pdf",
+    "id": "a45e370a6a5e"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/CH_Prim4_T2_.pdf",
+    "id": "1165dd5c16f2"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الاجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/DERASAT_4prim_T2.pdf",
+    "id": "eb2025c5e8a7"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Math_EN_prim4_Tr2.pdf",
+    "id": "ca23a652fcc9"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Math_Ar_prim4_TR2.pdf",
+    "id": "48399cb23c05"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Math_Fr_prim4_Tr2.pdf",
+    "id": "4c94faa1b27b"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Science_EN_Prim4_Tr2.pdf",
+    "id": "5268d1b970cb"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Science_AR_prim4_TR2.pdf",
+    "id": "7a1f24d93afe"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/English_Prim4_Tr2.pdf",
+    "id": "a0b344ed72d0"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Arabic_prim4_TR2.pdf",
+    "id": "eb3821d4c648"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/ICT_AR_prim4_Tr2.pdf",
+    "id": "ae789680b0aa"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Islamic_prim5_Tr2.pdf",
+    "id": "9350de1b5ab4"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/CH_Prim5_T2.pdf",
+    "id": "dae7ca70c938"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الاجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/DERASAT_5prim_T2.pdf",
+    "id": "7428ffa9eea9"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Math_EN_prim5_Tr2.pdf",
+    "id": "24ddc3284feb"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Math_AR_prim5_TR2.pdf",
+    "id": "f703b4654600"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Math_FR_prim5_Tr2.pdf",
+    "id": "24e7bfd1c2cf"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Science_EN_Prim5_Tr2.pdf",
+    "id": "495d37a516c0"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Science_AR_prim5_TR2.pdf",
+    "id": "536e9564b6fd"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/English_Prim5_Tr2.pdf",
+    "id": "98ca3c938764"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Arabic_prim5_TR2.pdf",
+    "id": "d7e3700700b7"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/ICT_Ar_5prim_T2.pdf",
+    "id": "467206790b53"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/islamic_prim6_tr2.pdf",
+    "id": "8de52720202d"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/CH_prim6_Tr2.pdf",
+    "id": "78a1034df679"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الاجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/DERASAT_6prim_T2.pdf",
+    "id": "4a54b46414c0"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Math_EN_prim6_Tr2.pdf",
+    "id": "5e9c6fe961d9"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Math_AR_Prim6_TR2.pdf",
+    "id": "d61b8753d2c6"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Math_FR_prim6_Tr2.pdf",
+    "id": "a4dc4f533531"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Science_E_Prim6_TR2.pdf",
+    "id": "3d65143fc747"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Science_AR_prim6_TR2.pdf",
+    "id": "6498862aa399"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/English_Prim6_Tr2.pdf",
+    "id": "7efc49c83c36"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Arabic_prim6_TR2.pdf",
+    "id": "952fb8684711"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/ICT_AR_Prim6_TR2.pdf",
+    "id": "f9358a33768c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الاعلام التربوى",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Educational_media_students_book_T2_prp1.pdf",
+    "id": "65dc568576a2"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Islamic_prp1_Tr2.pdf",
+    "id": "e75f3881f5e4"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/CH_PE1_T2.pdf",
+    "id": "e513da5a4734"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية المسرحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Theater_prp1_tr2.pdf",
+    "id": "df51635eda55"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الإجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Social_prp1_Tr2.pdf",
+    "id": "89b4cb677953"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Math_AR_prp1_TR2.pdf",
+    "id": "8a5ec078a417"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Science_E_Prp1_TR2.pdf",
+    "id": "d902506fbd2c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Science_AR_Prp1_TR2.pdf",
+    "id": "89a97b1b9d83"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Science_F_Prp1_TR2.pdf",
+    "id": "4070cb4d2f7e"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/ICT_EN_prap1_TR2.pdf",
+    "id": "cb23f5d063d3"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/ICT_AR_prap1_TR2.pdf",
+    "id": "7dfda83d850d"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/ICT_FR_prap1_TR2.pdf",
+    "id": "6a6bccd35363"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية لغة اولى",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/English_Prep1_Tr2.pdf",
+    "id": "01251ee6581c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Arabic_Prep1_SB_T2.pdf",
+    "id": "c564828e3a33"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term1/StudentBook/French_Prp1_TR1.pdf",
+    "id": "841b19fae371"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "المكتبات ومهارات البحث",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Librarie_research_skills_prep1_Tr2.pdf",
+    "id": "061d8ae0e3fa"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات إدارة الأسرة و ريادة الأعمال",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Familymanagementskill_1prep_t2.pdf",
+    "id": "d9ab96f5e885"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات الزراعة وريادة الاعمال",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Agriculture_1_Preparatory_TR2.pdf",
+    "id": "62c1fce4000c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات الصناعة وريادة الأعمال",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Industry_prep1_TR2.pdf",
+    "id": "a841efff89e2"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الإجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Social_prp2_T2.pdf",
+    "id": "921b79d82fdb"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Math_AR_prep2_Tr2.pdf",
+    "id": "60a6ffe1a81b"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Science_AR_Prp2_Tr2.pdf",
+    "id": "a56b0fa316a3"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/ICT_Ar_2prep_T2.pdf",
+    "id": "0c89e0214ed8"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية لغة اولى",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/English_prep2_Tr2.pdf",
+    "id": "7d3da188d11e"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Arabic_prep2_Tr2.pdf",
+    "id": "174669a2c0b6"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Islamic_Prp3_Tr1_2.pdf",
+    "id": "d631c737398a"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Cristian_Prp3_Tr1_2.pdf",
+    "id": "606fe7836a1c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الإجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Social_prp3_T1_2.pdf",
+    "id": "fee6ce9b3534"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Math_En_Prp3_Tr1_2.pdf",
+    "id": "a7d9fafa6b8b"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Math_Ar_Prp3_Tr1_2.pdf",
+    "id": "9803a43426aa"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Math_FR_Prp3_Tr1_2.pdf",
+    "id": "1ba305a0c355"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Science_EN_Prp3_Tr1_2.pdf",
+    "id": "28042ed67f72"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Science_AR_Prp3_Tr1_2.pdf",
+    "id": "a3f3c0309e0d"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Science_FR_Prp3_Tr1_2.pdf",
+    "id": "31539d69e4f8"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الاعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term1/StudentBook/ICT_AR_3_Preparatory_Tr1.pdf",
+    "id": "2918ab9a8a8c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية لغة اولى",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/English_Prp3_Tr2.pdf",
+    "id": "88d6d62d7559"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term2/StudentBook/Arabic_Prp3_Tr1_2.pdf",
+    "id": "757c85602ad9"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الاعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term1/StudentBook/French_Prp3_TR1.pdf",
+    "id": "e8d30b755666"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثالث الاعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "كراسة الخط العربى",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory3/Term1/StudentBook/ArabicNotebook_Prp3_Tr1.pdf",
+    "id": "37c0d3df1dbe"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "البرمجة والذكاء الاصطناعي باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/ICT_En_Sec1_T1.pdf",
+    "id": "48655d3be6c3"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "البرمجة والذكاء الاصطناعي باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/ICT_Ar_Sec1_T1.pdf",
+    "id": "1a76f29ad707"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التاريخ",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/History_Sec1_Tr1_2.pdf",
+    "id": "153225727af1"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Islamic_Sec1_Tr1_2.pdf",
+    "id": "375db922467f"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Christian_1sec_Tr1_2.pdf",
+    "id": "85eaa88b4a23"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Math_AR_Sec1_Tr2.pdf",
+    "id": "247370604086"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Math_FR_Sec1_Tr2.pdf",
+    "id": "291c6ce8b542"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم المتكاملة باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/integratedscience_ARABIC_1_Secondary_TR2.pdf",
+    "id": "173f65c8ef06"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفلسفة والمنطق",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/philosophyandlogic_ARABIC_1_Secondary_T2.pdf",
+    "id": "de89f492fd4c"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "القواعد الأساسية للنحو والصرف",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/naho_general_TR1_1sec.pdf",
+    "id": "479fc0ef01e4"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "القواعد الأساسية للنحو والصرف",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Naho_General_sec1.pdf",
+    "id": "479fc0ef01e4"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الألمانية لغة تانيه",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Deutschl_anguage_Sec1_Tr1.pdf",
+    "id": "44ee0a041778"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإسبانية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Espa%C3%B1ol_language_Sec1_Tr1.pdf",
+    "id": "b61bae0a330f"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإنجليزية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/English_second_language_secondary1.pdf",
+    "id": "807afb73ad0a"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإيطالية لغة تانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Italiano_language_Sec1_Tr1.pdf",
+    "id": "160d93b52a41"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Arabic_sec1_TR2.pdf",
+    "id": "eee8193ba444"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة أولى",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Premiere_langue_francaise_SB_Sec1_Tr1.pdf",
+    "id": "a9fa09bd8e3e"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة أولى كراسة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Premiere_langue_francaise_WB_Sec1_Tr1.pdf",
+    "id": "33953769d13a"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة اولى القصة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Premiere_langue_francaise_STORY_Sec1_Tr1.pdf",
+    "id": "1ba59f72de19"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term1/StudentBook/Une_deuxieme_langue_francaise_Sec1_Tr1.pdf",
+    "id": "9e2d0a57cfa8"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "قصة أبو الفوارس عنترة بن شداد",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/Abo_Elfwarth_sec1_TR2.pdf",
+    "id": "020e44f63efd"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التاريخ",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/history_2sec_sb_wb.pdf",
+    "id": "74a38840b6d7"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/den_islamy_2sec_t2.pdf",
+    "id": "b793f57d7abc"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Christian_2sec_t2.pdf",
+    "id": "b30d9ef8816f"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات البحتة باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/pure_math_English_2s.pdf",
+    "id": "00fd3f4b47ca"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات البحتة باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/pure_math_2s.pdf",
+    "id": "cfc781b9c0d0"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات البحتة باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/pure_math_FR_2s.pdf",
+    "id": "4693574706a5"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات العامة باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/genral_math_EN_Sec2_Tr2.pdf",
+    "id": "61ea5186f438"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات العامة باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/genral_math_AR_Sec2_Tr2.pdf",
+    "id": "a59f210803cd"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات العامة باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/genral_math_2s_t2_FR.pdf",
+    "id": "ff12f7c90441"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Phy_Ar_SE2_SB_T2_26.pdf",
+    "id": "8ab8721b398c"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "القواعد الأساسية للنحو والصرف",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/naho_general_sec.pdf",
+    "id": "3f7292b58fe7"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والاتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/ICT_En_SEC2_Tr1.pdf",
+    "id": "9f1387e9629d"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والاتصالات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/ICT_AR_SEC2_Tr1.pdf",
+    "id": "79f631ef15dd"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكيمياء باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Chemistry_Arabic_2_Secondary_TR2.pdf",
+    "id": "060acdbdb166"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الألمانية لغة تانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Deutsch_language_Sec2_Tr1.pdf",
+    "id": "08f6ccd01e96"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإسبانية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Espa%C3%B1ol_language_Sec2_Tr1.pdf",
+    "id": "b01cd8ffba91"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإنجليزية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/English_second_language_secondary2.pdf",
+    "id": "2eef78fe7326"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإيطالية لغة تانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Italiano_language_Sec2_Tr1.pdf",
+    "id": "76dda121d3bc"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية لغة اولي",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Eng_Sec2_Tr2.pdf",
+    "id": "a41e8cff5887"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/arabic_2sec_t2.pdf",
+    "id": "44384a2109dc"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية القصة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/w_islama_2sec.pdf",
+    "id": "be597223046b"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة أولى قصة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Premiere_langue_francaise_STORY_Sec2_Tr1.pdf",
+    "id": "2e9496a7d620"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة أولى كراسة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Premiere_langue_francaise_WB_Sec2_Tr1.pdf",
+    "id": "f74a03f8b2ea"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة اولي",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Premiere_langue_francaise_SB_Sec2_Tr1.pdf",
+    "id": "bd9904c0ac9b"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/Une_deuxieme_langue_francaise_Sec1_Tr1.pdf",
+    "id": "3005ade2ad44"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "المواطنة وحقوق الإنسان",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/mowatina_2sec.pdf",
+    "id": "e8e9f3f6ae64"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تطبيقات الرياضيات باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/applid_math_EN_Sec2_Tr2.pdf",
+    "id": "5580a1e07633"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تطبيقات الرياضيات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/applid_math_AR_Sec2_Tr2.pdf",
+    "id": "dc197fa371d2"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تطبيقات الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/applid_math_2s_FR.pdf",
+    "id": "dd9be5468524"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "جغرافيا التنمية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/geographic_2sec.pdf",
+    "id": "8bbd5541d70b"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "علم النفس والاجتماع",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Psychology_sociology_Sec2_tr2.pdf",
+    "id": "cd09ba57f27a"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الإحصاء باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Statistics_English_Sec3.pdf",
+    "id": "ea2218d0248d"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الإحصاء باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Statistics_Arabic_Sec3.pdf",
+    "id": "959e91d695a8"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الإحصاء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Statistics_Fr_Sec3.pdf",
+    "id": "09ef836795a4"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الاحياء باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Biology_English_Sec3.pdf",
+    "id": "012c63bbfbbe"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الاحياء باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Biology_ARABIC_Sec3.pdf",
+    "id": "dfe5923a151c"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الاحياء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Biology_FR_Sec3.pdf",
+    "id": "ee7e461cf763"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التاريخ",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/History_Sec3.pdf",
+    "id": "f44f8bef7f9d"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية الإسلامية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Islamic_religion_Sec3.pdf",
+    "id": "9147fd4cc707"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الدينية المسيحية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Christian_religion_Sec3.pdf",
+    "id": "20498d4017e7"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "التربية الوطنية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Natoinal_education_Sec3.pdf",
+    "id": "7a69eed34f4e"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الجغرافيا السياسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Geography_Sec3.pdf",
+    "id": "91bbbac03c86"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات البحتة باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/pure_Mathematics_ENGLISH_Sec3.pdf",
+    "id": "ca99c956e59b"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات البحتة باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/pure_Mathematics_ARABIC_Sec3.pdf",
+    "id": "8eae2bac922c"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات البحتة باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/pure_Mathematics_FRENCH_Sec3.pdf",
+    "id": "b524683b215d"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات التطبيقية باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/applied_Mathematics_ENGLISH_Sec3.pdf",
+    "id": "64a3fa50dfbb"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات التطبيقية باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/applied_Mathematics_ARABIC_Sec3.pdf",
+    "id": "5a2b55c2e78e"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات التطبيقية باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/applied_Mathematics_FRENCH_Sec3.pdf",
+    "id": "ee7812e2cde0"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Physics_English_Sec3.pdf",
+    "id": "3da602f333de"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Physics_Arabic_Sec3.pdf",
+    "id": "14a2a5f9353d"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Physics_French_Sec3.pdf",
+    "id": "6778ebaa4984"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والاتصالات باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/ICT_EN_Sec3.pdf",
+    "id": "5e0789c5d04b"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والاتصالات باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/ICT_AR_Sec3.pdf",
+    "id": "da2814041ee9"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكيمياء باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Chemistry_English_Sec3.pdf",
+    "id": "4191844542b5"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكيمياء باللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Chemistry_Arabic_Sec3.pdf",
+    "id": "f405fb3394c0"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكيمياء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Chemistry_FR_Sec3.pdf",
+    "id": "a75b82ee2483"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الألمانية لغة تانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Deutsch_language_Sec3.pdf",
+    "id": "01edc507af38"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإسبانية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Espa%C3%B1ol_language_Sec3.pdf",
+    "id": "fbf3c9819c44"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإنجليزية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/English_second_language_secondary3.pdf",
+    "id": "41409cc67025"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإيطالية لغة تانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Italiano_language_Sec3.pdf",
+    "id": "c4628b6d80c4"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية لغة اولي",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/English_language_Sec3.pdf",
+    "id": "b70d8b81edde"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Arabic_language_Sec3.pdf",
+    "id": "c70b8f6a23a2"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية القصة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Arabic_language_Story_Sec3.pdf",
+    "id": "ab1649d88612"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية اللغة الاولي",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Premiere_langue_francaise_SB_Sec3.pdf",
+    "id": "d9ad5bd7c922"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية اللغة الاولي قصة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Premiere_langue_francaise_STORY_Sec3.pdf",
+    "id": "130cf7521e7a"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية اللغة الاولي كراسة",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Premiere_langue_francaise_WB_Sec3.pdf",
+    "id": "91364859bd05"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثالث الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الفرنسية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry3/Term1/StudentBook/Une_deuxieme_langue_francaise_Sec3.pdf",
+    "id": "e240604ea595"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات الصناعة وريادة الأعمال",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Industry_prep2_TR2.pdf",
+    "id": "7a54b41a6174"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات الزراعة وريادة الاعمال",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Agriculture_Prep2_TR2.pdf",
+    "id": "2a32a98211bf"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات إدارة الأسرة و ريادة الأعمال",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Family_management_Prep2_TR2.pdf",
+    "id": "115fe4a7630a"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الأول الإبتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary1/Term2/StudentBook/Math_Fr_Prim1_Tr2.pdf",
+    "id": "347376a7f0d2"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الأول الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory1/Term2/StudentBook/Math_Fr_prp1_Tr2.pdf",
+    "id": "3e94fab4aa3c"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Sience_EN_prep2_Tr2.pdf",
+    "id": "09f9e452bc87"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Math_EN_prep2_Tr2.pdf",
+    "id": "9501e273ed4c"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية لغة اولي",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/English_Sec1_Tr2.pdf",
+    "id": "f5e68ea1478e"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الإنجليزية لغة ثانية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term1/StudentBook/English_second_language_secondary2.pdf",
+    "id": "2eef78fe7326"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/Science_FR_prim4_TR2.pdf",
+    "id": "8bd49579b567"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/Science_FR_prim5_TR2.pdf",
+    "id": "ff47e3ab72f7"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/Science_FR_prim6_TR2.pdf",
+    "id": "207ca49519e6"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الاول الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم المتكاملة باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry1/Term2/StudentBook/integrated_science_EN_1_Secondary_TR2.pdf",
+    "id": "02d5765c6951"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكيمياء باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Chemistry_EN_2_Secondary_TR2.pdf",
+    "id": "c003723f0eee"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة الإنجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Phy_EN_SE2_SB_T2_.pdf",
+    "id": "f1832e064768"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/ICT_EN_5prim_T2.pdf",
+    "id": "d0726f9123a5"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Math_Fr_Prep2_T2.pdf",
+    "id": "15b738085f7f"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Sience_FR_Prep2_SB_T2.pdf",
+    "id": "33a465f0abaf"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/ICT_EN_2prep_T2.pdf",
+    "id": "261b96a0e77e"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Phy_FR_SE2_SB_T2.pdf",
+    "id": "f478b06e6135"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الاول مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level1/Term2/StudentBook/Arabic_level1_Tr2_Community_Education.pdf",
+    "id": "fd692643f63f"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الاول مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level1/Term2/StudentBook/Englash_level1_Tr2_Community_Education.pdf",
+    "id": "48ae92c6d743"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الاول مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level1/Term2/StudentBook/Math_level1_Tr2_Community_Education.pdf",
+    "id": "f72e858113ca"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الثاني مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level2/Term2/StudentBook/Englash_level2_Tr2_Community_Education.pdf",
+    "id": "9fd8aac6e570"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الثاني مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level2/Term2/StudentBook/Arabic_level2_Tr2_Community_Education.pdf",
+    "id": "adce2ec39e9f"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الثالث مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level3/Term2/StudentBook/Arabic_level3_Tr2_Community_Education.pdf",
+    "id": "a95c1a951937"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الثالث مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level3/Term2/StudentBook/Englash_level3_Tr2_Community_Education.pdf",
+    "id": "9cab9bf8da9b"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الثالث مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level3/Term2/StudentBook/Math_level3_Tr2_Community_Education.pdf",
+    "id": "4d895fdc4679"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الرابع مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level4/Term2/StudentBook/Arabic_level4_Tr2_Community_Education.pdf",
+    "id": "64ea554afefd"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الرابع مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level4/Term2/StudentBook/Englash_level4_Tr2_Community_Education.pdf",
+    "id": "b2adc6a7a529"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الرابع مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level4/Term2/StudentBook/Math_level4_Tr2_Community_Education.pdf",
+    "id": "77979ae3d1a6"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الرابع مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الاجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level4/Term2/StudentBook/Social_level4_Tr2_Community_Education.pdf",
+    "id": "83480a7a99b5"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الرابع مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level4/Term2/StudentBook/Science_level4_Tr2_Community_Education.pdf",
+    "id": "53432fda96cd"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الخامس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level5/Term2/StudentBook/Arabic_level5_Tr2_Community_Education.pdf",
+    "id": "bcdfc8fb6afa"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الخامس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level5/Term2/StudentBook/Math_level5_Tr2_Community_Education.pdf",
+    "id": "4a965a431880"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الخامس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level5/Term2/StudentBook/Englash_level5_Tr2_Community_Education.pdf",
+    "id": "6662e86228d7"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الخامس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الاجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level5/Term2/StudentBook/Social_level5_Tr2_Community_Education.pdf",
+    "id": "66658503b1ed"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف الخامس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level5/Term2/StudentBook/Science_level5_Tr2_Community_Education.pdf",
+    "id": "300f075db45a"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف السادس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة العربية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level6/Term2/StudentBook/Arabic_level6_Tr2_Community_Education.pdf",
+    "id": "590ca1f4b580"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف السادس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level6/Term2/StudentBook/Math_level6_Tr2_Community_Education.pdf",
+    "id": "94cbfb72c80e"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف السادس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "اللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level6/Term2/StudentBook/Englash_level6_Tr2_Community_Education.pdf",
+    "id": "b4b6a8b99bf5"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف السادس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الدراسات الاجتماعية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level6/Term2/StudentBook/Social_level6_Tr2_Community_Education.pdf",
+    "id": "2ecbe3947b43"
+  },
+  {
+    "stage": "تعليم مجتمعي",
+    "grade": "الصف السادس مجتمعي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Community_Education/Level6/Term2/StudentBook/Science_level6_Tr2_Community_Education.pdf",
+    "id": "ece0482d4b8b"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/ICT_EN_prim4_Tr2.pdf",
+    "id": "20fc55a09db7"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الرابع الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات مهنية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary4/Term2/StudentBook/mahart_prim4_tr2.pdf",
+    "id": "3eb706762140"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/ICT_EN_5prim_T2.pdf",
+    "id": "d0726f9123a5"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف الخامس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات مهنية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary5/Term2/StudentBook/mahart_prim5_tr2.pdf",
+    "id": "bf65e298c8e8"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "تكنولوجيا المعلومات والاتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/ICT_EN_Prim6_TR2.pdf",
+    "id": "a27cfba7b8c1"
+  },
+  {
+    "stage": "الإبتدائية",
+    "grade": "الصف السادس الابتدائي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "مهارات مهنية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Primary/Primary6/Term2/StudentBook/mahart_prim6_tr2.pdf",
+    "id": "1bedc05d3dba"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الرياضيات باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Math_Fr_Prep2_T2.pdf",
+    "id": "15b738085f7f"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "العلوم باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/Sience_FR_Prep2_SB_T2.pdf",
+    "id": "33a465f0abaf"
+  },
+  {
+    "stage": "الإعدادية",
+    "grade": "الصف الثاني الإعدادي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الكمبيوتر وتكنولوجيا المعلومات والإتصالات باللغة الانجليزية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Prepratory/Prepratory2/Term2/StudentBook/ICT_EN_2prep_T2.pdf",
+    "id": "261b96a0e77e"
+  },
+  {
+    "stage": "الثانوي العام",
+    "grade": "الصف الثاني الثانوي",
+    "term": "الفصل الدراسى الثانى",
+    "subject": "الفيزياء باللغة الفرنسية",
+    "type": "كتاب الطالب",
+    "link": "https://elearnningcontent.blob.core.windows.net/elearnningcontent/2026/Secondry/Secondry2/Term2/StudentBook/Phy_FR_SE2_SB_T2.pdf",
+    "id": "f478b06e6135"
+  }
+]
