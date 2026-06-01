@@ -132,6 +132,86 @@ class MOELibraryService:
         self._client_headers = self._browser_headers(f"{self.BASE_URL}/books/")
         self._assessment_headers = self._browser_headers(f"{self.BASE_URL}/cha/")
 
+    # ─── Session warmup ────────────────────────────────────────────────────
+    #
+    # MOE's Azure-fronted edge issues `ARRAffinity` sticky-session cookies
+    # bound to the originating client IP. A real browser visiting the
+    # parent HTML directory sets these transparently before requesting
+    # books.json; from a Hugging Face Space's IP, an un-warmed-up request
+    # to books.json reliably returns 403.
+    #
+    # The pre-Phase-5 hardcoded cookies were captured from a developer's
+    # browser session and stop working as soon as their IP rotates. Better
+    # approach: GET the parent directory first inside an httpx.AsyncClient
+    # (which auto-collects Set-Cookie headers into its jar), THEN call the
+    # JSON endpoint reusing the same client. Cookies become per-deploy
+    # automatic instead of stale-secret-managed.
+
+    async def _fetch_json_with_session(
+        self,
+        json_url: str,
+        warmup_url: str,
+        json_headers: dict[str, str],
+    ) -> list[dict]:
+        """Two-step fetch: warm up session at warmup_url, then GET json_url.
+
+        Args:
+            json_url: The JSON endpoint to fetch.
+            warmup_url: HTML parent directory whose Set-Cookie response
+                        seeds the ARRAffinity sticky-session cookies.
+            json_headers: Browser-mimicking headers for the JSON request.
+
+        Returns:
+            Parsed JSON body (list of dicts).
+
+        Raises:
+            httpx.HTTPStatusError, httpx.RequestError, json.JSONDecodeError.
+        """
+        # Warmup uses an HTML-friendly Accept; JSON request keeps its own headers.
+        warmup_headers = dict(json_headers)
+        warmup_headers["Accept"] = (
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        )
+        warmup_headers["Sec-Fetch-Dest"] = "document"
+        warmup_headers["Sec-Fetch-Mode"] = "navigate"
+        warmup_headers["Sec-Fetch-Site"] = "none"
+        # The warmup is a top-level navigation — drop the Referer that's
+        # only valid for the JSON CORS request.
+        warmup_headers.pop("Referer", None)
+
+        async with httpx.AsyncClient(
+            timeout=30.0,
+            follow_redirects=True,
+            cookies=self.DEFAULT_MOE_COOKIES,  # initial seed; refreshed by warmup
+        ) as client:
+            try:
+                wu = await client.get(warmup_url, headers=warmup_headers)
+                logger.info(
+                    "MOE warmup %s -> %d (cookies: %s)",
+                    warmup_url,
+                    wu.status_code,
+                    list(client.cookies.keys()),
+                )
+            except httpx.RequestError as e:
+                logger.warning(
+                    "MOE warmup at %s failed (non-fatal): %s", warmup_url, e
+                )
+                # Continue anyway — the seeded DEFAULT_MOE_COOKIES might
+                # still work, and we'd rather see the real failure on the
+                # JSON request than abort here.
+
+            response = await client.get(json_url, headers=json_headers)
+            if response.status_code >= 400:
+                logger.error(
+                    "MOE %s -> %d. Body (first 500): %s. Cookies sent: %s",
+                    json_url,
+                    response.status_code,
+                    response.text[:500],
+                    list(client.cookies.keys()),
+                )
+            response.raise_for_status()
+            return response.json()
+
     # ─── Catalog ID generation ──────────────────────────────────────────────
 
     def _generate_book_id(self, book: dict) -> str:
@@ -227,28 +307,14 @@ class MOELibraryService:
 
         logger.info("Fetching MOE eLibrary catalog from /books/books.json")
         try:
-            # ARRAffinity cookies are REQUIRED — the Azure edge returns 4xx
-            # or empty responses to cookie-less requests from server IPs.
-            # Same shape as fetch_assessments_catalog below; without this
-            # the deployed HF Space's `/api/moe-library/books` reliably
-            # fails while the user's browser-direct curl succeeds.
-            async with httpx.AsyncClient(
-                timeout=30.0,
-                cookies=self.DEFAULT_MOE_COOKIES,
-                follow_redirects=True,
-            ) as client:
-                response = await client.get(self.BOOKS_API, headers=self._client_headers)
-                response.raise_for_status()
-                books_raw = response.json()
-        except httpx.HTTPStatusError as e:
-            logger.error(
-                "MOE /books/books.json returned %d. Body (first 500): %s",
-                e.response.status_code,
-                e.response.text[:500] if e.response is not None else "",
+            books_raw = await self._fetch_json_with_session(
+                json_url=self.BOOKS_API,
+                warmup_url=f"{self.BASE_URL}/books/",
+                json_headers=self._client_headers,
             )
+        except httpx.HTTPStatusError as e:
             raise RuntimeError(f"MOE eLibrary API error: {e.response.status_code}")
         except httpx.RequestError as e:
-            logger.error(f"MOE /books/books.json request failed: {e}")
             raise RuntimeError(f"Failed to connect to MOE eLibrary: {e}")
         except json.JSONDecodeError:
             logger.error("MOE /books/books.json returned invalid JSON.")
@@ -378,26 +444,16 @@ class MOELibraryService:
 
         logger.info("Fetching MOE weekly-assessments catalog from /cha/books.json")
         try:
-            async with httpx.AsyncClient(
-                timeout=30.0,
-                cookies=self.DEFAULT_MOE_COOKIES,
-                follow_redirects=True,
-            ) as client:
-                response = await client.get(
-                    self.ASSESSMENTS_API,
-                    headers=self._assessment_headers,
-                )
-                response.raise_for_status()
-                items_raw = response.json()
-        except httpx.HTTPStatusError as e:
-            logger.error(
-                f"MOE assessments API returned error status: {e.response.status_code}"
+            items_raw = await self._fetch_json_with_session(
+                json_url=self.ASSESSMENTS_API,
+                warmup_url=f"{self.BASE_URL}/cha/",
+                json_headers=self._assessment_headers,
             )
+        except httpx.HTTPStatusError as e:
             raise RuntimeError(
                 f"MOE eLibrary assessments API error: {e.response.status_code}"
             )
         except httpx.RequestError as e:
-            logger.error(f"MOE assessments API request failed: {e}")
             raise RuntimeError(f"Failed to connect to MOE assessments: {e}")
         except json.JSONDecodeError:
             logger.error("MOE assessments API returned invalid JSON.")
