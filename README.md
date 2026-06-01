@@ -1,35 +1,37 @@
-# MathCraft
+# CurriculumCraft
 
-> **Generate Egyptian-curriculum math workbooks, quizzes and MOE-style weekly assessments from a textbook PDF — fully editable `.docx` output, RTL Arabic supported.**
+> **Generate Egyptian-curriculum workbooks, quizzes and MOE-style weekly assessments from a textbook PDF — across every subject. Fully editable `.docx` output, RTL Arabic supported, math-grade OMML where it matters.**
 
-MathCraft ingests an Egyptian-curriculum math textbook PDF, indexes it with a hybrid (FAISS + BM25) retrieval pipeline, and uses Google Gemini to produce print-ready Word documents that match the layout teachers actually use:
+CurriculumCraft (formerly MathCraft) ingests an Egyptian-curriculum textbook PDF in any subject — Mathematics, Arabic, English, French, Physics, Chemistry, History, Religion, ICT, Programming, and 14 more — indexes it with a hybrid (FAISS + BM25) retrieval pipeline, and uses Google Gemini to produce print-ready Word documents that match the layout teachers actually use:
 
 - **Workbooks** — exercises, fill-in answer space, optional answer key
 - **Illustrated lessons + workbook** — concept boxes, theorems, key formulas, worked examples, then exercises
 - **Quizzes & monthly exams** — official MOE multi-section format (choose / complete / answer / solve / essay)
-- **Weekly assessments** — topic-organised paper with three parallel groups, mirroring the Ministry of Education's [Classroom & Home Assessments](https://ellibrary.moe.gov.eg/cha/) for Secondary 1 & 2
+- **Weekly assessments** — topic-organised paper with three parallel groups, mirroring the Ministry of Education's [Classroom & Home Assessments](https://ellibrary.moe.gov.eg/cha/) across all 24 canonical subjects
 
-Everything renders to A4 `.docx` with proper bidi/RTL handling and is editable in Word, Google Docs, or LibreOffice afterwards.
+Output is A4 `.docx` with proper bidi/RTL handling, math-aware OMML rendering for STEM subjects, and plain Amiri/Tajawal rendering for language and humanities subjects. Editable in Word, Google Docs, or LibreOffice afterwards.
 
 ## Live demo
 
-- **Frontend:** https://mdshash.github.io/mathcraft/
+- **Frontend:** https://mdshash.github.io/curriculumcraft/
 
 GitHub Pages serves the React frontend as a static site. To make it actually generate workbooks, run the FastAPI backend on your own machine and connect the deployed frontend to it via a free **Cloudflare Tunnel** — see [HOSTING.md](HOSTING.md) for the 3-step setup. (Or just run both halves locally — instructions below.)
 
 ## Status
 
-Early/alpha. The core ingestion → RAG → generation → DOCX pipeline works end-to-end on real Egyptian textbooks (primary, preparatory, and secondary). The build is **safe to run locally for personal use**, but **do not expose the backend to the public internet without adding authentication first** — there is no auth layer yet.
+Active development. The core ingestion → RAG → generation → DOCX pipeline works end-to-end on real Egyptian textbooks (primary, preparatory, and secondary), validated for math; other subjects share the infrastructure and ship via per-subject strategies that the registry resolves automatically. The build is **safe to run locally for personal use**, but **do not expose the backend to the public internet without adding authentication first** — there is no auth layer yet.
 
 ## Features
 
+- 🌍 **All 24 canonical Egyptian MOE subjects** — Math, Physics, Chemistry, Integrated Science, Arabic, English, French (L1+L2), German, Spanish, Italian, Chinese, History, Geography, Philosophy & Logic, Psychology & Sociology, Islamic Studies, Christian Studies, ICT (Ar+En), Programming & AI (Ar+En), Family Skills, Agriculture Skills
 - 📥 PDF ingestion with OCR fallback (`pdfplumber` + `pytesseract` + `pymupdf`)
 - 🔎 Hybrid retrieval — semantic (sentence-transformers + FAISS) + lexical (BM25) + MMR diversification
-- 🧮 Math-aware prompt templates — preserves notation across English / Arabic / bilingual output
-- 🏛️ Direct integration with the **MOE eLibrary** to import official textbooks and use weekly assessments as style references
-- 🪄 Multi-step wizard for scope, structure, exercise mix, formatting
-- 📄 RTL-correct `.docx` output (paragraph-level `w:bidi`, ministry-style letterhead for weekly assessments)
+- 🧮 Subject-aware prompt strategies — math gets OMML notation, language subjects get prose-aware prompts, religion subjects respect scripture citation conventions
+- 🏛️ Direct integration with the **MOE eLibrary** for both `/books/books.json` (textbooks) and `/cha/books.json` (weekly assessments) — hamza-folded matching so catalog variants like `الاسبانية` and `الإسبانية` resolve to the same canonical key
+- 🪄 Multi-step wizard with subject picker, scope, structure, exercise mix, formatting
+- 📄 RTL-correct `.docx` output (paragraph-level `w:bidi`, per-subject ministry letterhead for weekly assessments)
 - 🔁 Multi-variant exam generation with deterministic per-variant shuffling
+- 🛡️ Resilient polling with exponential backoff (survives HF Space cold-starts) and orphaned-job recovery on server restart
 
 ## Tech stack
 
@@ -46,7 +48,7 @@ Early/alpha. The core ingestion → RAG → generation → DOCX pipeline works e
 
 - **Python 3.11+** — https://python.org/downloads/
 - **Node.js 18+** — https://nodejs.org/
-- **Google Gemini API key** — https://aistudio.google.com/app/apikey *(optional — without it, MathCraft falls back to template exercises)*
+- **Google Gemini API key** — https://aistudio.google.com/app/apikey *(optional — without it, CurriculumCraft falls back to template exercises)*
 - **Tesseract OCR** *(optional, for scanned textbooks)* — [Windows installer](https://github.com/UB-Mannheim/tesseract/wiki) · `brew install tesseract` · `sudo apt install tesseract-ocr`
 
 ## Quick start
