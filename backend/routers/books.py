@@ -11,6 +11,7 @@ from config import get_settings
 from database import SessionLocal, get_db
 from models.book import Book
 from models.chapter import Chapter
+from models.subject import Subject
 from models.topic import Topic
 from schemas.book import BookOutline, BookResponse, ChapterInfo, LessonInfo, TopicInfo
 from utils.file_utils import get_upload_path
@@ -57,9 +58,20 @@ async def upload_book(
     academic_year: str = Form(""),
     term: str = Form(""),
     subject: str = Form("Mathematics"),
+    subject_key: str = Form("math"),
+    primary_language: str = Form("ar"),
     db: Session = Depends(get_db),
 ) -> BookResponse:
-    """Upload a math textbook (PDF or DOCX) and trigger ingestion pipeline."""
+    """Upload a curriculum textbook (PDF or DOCX) and trigger ingestion pipeline.
+
+    Args:
+        subject_key: Canonical subject key (one of the 24 keys in /api/subjects).
+                     Defaults to 'math' for backwards compat with existing
+                     uploaders. Validated against the Subject taxonomy.
+        primary_language: ISO code for the textbook's primary language
+                          ('ar' | 'en' | 'fr' | 'de' | 'es' | 'it' | 'zh').
+                          Drives prompt language and font selection.
+    """
     if not file.filename:
         raise HTTPException(status_code=400, detail="No file provided.")
 
@@ -69,6 +81,16 @@ async def upload_book(
         raise HTTPException(
             status_code=400,
             detail="Only PDF and DOCX files are accepted.",
+        )
+
+    # Validate subject_key against the canonical taxonomy.
+    if not db.query(Subject).filter(Subject.key == subject_key).first():
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Unknown subject_key: {subject_key!r}. "
+                f"See GET /api/subjects for the valid taxonomy."
+            ),
         )
 
     # Save the uploaded file
@@ -86,6 +108,8 @@ async def upload_book(
         academic_year=academic_year,
         term=term,
         subject=subject,
+        subject_key=subject_key,
+        primary_language=primary_language or "ar",
         filename=file.filename,
         file_path=upload_path,
         total_pages=0,

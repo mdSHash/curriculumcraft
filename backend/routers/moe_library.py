@@ -1,4 +1,5 @@
-"""MOE eLibrary API router — browse and import official textbooks."""
+"""MOE eLibrary API router — browse and import official textbooks across
+every subject in the catalog (math, arabic, languages, sciences, ICT, …)."""
 
 import logging
 from typing import Optional
@@ -9,7 +10,9 @@ from sqlalchemy.orm import Session
 
 from database import SessionLocal, get_db
 from models.book import Book
+from models.subject import Subject
 from services.moe_library_service import MOELibraryService
+from services.subjects.registry import resolve_subject_key_from_moe_label
 
 router = APIRouter(prefix="/moe-library", tags=["moe-library"])
 logger = logging.getLogger(__name__)
@@ -28,88 +31,107 @@ class ImportResponse(BaseModel):
     id: int
     title: str
     status: str
+    subject_key: Optional[str] = None
     message: str
+
+
+def _validate_subject_key(db: Session, subject_key: Optional[str]) -> Optional[str]:
+    """Return subject_key if valid, raise 400 if unknown, return None for empty."""
+    if not subject_key:
+        return None
+    exists = db.query(Subject).filter(Subject.key == subject_key).first()
+    if exists is None:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Unknown subject key: {subject_key!r}. "
+                f"See GET /api/subjects for the valid taxonomy."
+            ),
+        )
+    return subject_key
 
 
 @router.get("/books")
 async def get_moe_books(
-    subject: str = "math",
+    subject: Optional[str] = None,
     grade: Optional[str] = None,
     stage: Optional[str] = None,
+    db: Session = Depends(get_db),
 ) -> list[dict]:
-    """Get available books from MOE eLibrary.
+    """Browse books in the MOE eLibrary catalog.
 
     Args:
-        subject: Subject filter. Currently only 'math' is supported.
-        grade: Optional grade key (e.g., 'primary1', 'secondary2').
-        stage: Optional stage key (e.g., 'primary', 'preparatory', 'secondary').
-
-    Returns:
-        List of available math books with metadata.
+        subject: Optional canonical subject key (e.g. 'math', 'arabic_lang',
+                 'physics'). Omit to browse all subjects across the catalog.
+        grade: Optional grade key (e.g. 'primary1', 'secondary2').
+        stage: Optional stage key ('primary', 'preparatory', 'secondary').
     """
-    if subject != "math":
-        raise HTTPException(
-            status_code=400,
-            detail="Only 'math' subject is currently supported.",
-        )
-
+    subject_key = _validate_subject_key(db, subject)
     try:
-        books = await _moe_service.get_math_books(grade_level=grade, stage=stage)
-        return books
+        return await _moe_service.get_books(
+            db=db,
+            subject_key=subject_key,
+            grade_level=grade,
+            stage=stage,
+        )
     except RuntimeError as e:
         raise HTTPException(status_code=502, detail=str(e))
 
 
 @router.get("/assessments")
 async def get_moe_assessments(
-    subject: str = "math",
+    subject: Optional[str] = None,
     grade: Optional[str] = None,
     stage: Optional[str] = None,
     week: Optional[int] = None,
+    db: Session = Depends(get_db),
 ) -> list[dict]:
-    """Browse official weekly assessments from the MOE eLibrary.
+    """Browse the official weekly-assessments catalog.
 
-    Backed by https://ellibrary.moe.gov.eg/cha/books.json — the
-    Classroom & Home Assessments catalog (Mathematics Curriculum
-    Development Department).
+    Backed by https://ellibrary.moe.gov.eg/cha/books.json — Classroom &
+    Home Assessments published by curriculum-development departments
+    across all subjects.
 
     Args:
-        subject: Subject filter. Currently only 'math' is supported.
-        grade: Optional grade key (e.g. 'secondary1', 'secondary2').
-        stage: Optional stage key (e.g. 'secondary').
+        subject: Optional canonical subject key. Omit for all subjects.
+        grade: Optional grade key.
+        stage: Optional stage key.
         week: Optional 1-based week number (1..11).
-
-    Returns:
-        List of available math weekly assessments with metadata.
     """
-    if subject != "math":
-        raise HTTPException(
-            status_code=400,
-            detail="Only 'math' subject is currently supported.",
-        )
+    subject_key = _validate_subject_key(db, subject)
     try:
-        return await _moe_service.get_math_assessments(
-            grade_level=grade, stage=stage, week=week
+        return await _moe_service.get_assessments(
+            db=db,
+            subject_key=subject_key,
+            grade_level=grade,
+            stage=stage,
+            week=week,
         )
     except RuntimeError as e:
         raise HTTPException(status_code=502, detail=str(e))
 
 
 @router.get("/assessments/grades")
-async def get_assessment_grades() -> list[dict]:
+async def get_assessment_grades(
+    subject: Optional[str] = None,
+    db: Session = Depends(get_db),
+) -> list[dict]:
     """Return available (grade, subject, term) tuples for assessments.
 
-    Useful so the frontend grade picker only shows grades that actually
-    have weekly assessments published (currently Secondary 1 & 2 only).
+    Drives the frontend grade picker so it only shows grades that actually
+    have weekly assessments published. Pass `subject` to scope to one
+    subject; omit to span the whole catalog.
     """
+    subject_key = _validate_subject_key(db, subject)
     try:
-        all_math = await _moe_service.get_math_assessments()
+        all_items = await _moe_service.get_assessments(
+            db=db, subject_key=subject_key
+        )
     except RuntimeError as e:
         raise HTTPException(status_code=502, detail=str(e))
 
-    # Distinct (grade_key, grade, subject, term) with weekly count
     seen: dict[tuple, dict] = {}
-    for item in all_math:
+    for item in all_items:
         key = (
             item.get("grade_key", ""),
             item.get("grade", ""),
@@ -140,16 +162,23 @@ async def get_assessment_grades() -> list[dict]:
 
 
 @router.get("/stages")
-async def get_available_stages() -> list[dict]:
-    """Get available stages (educational levels) with their math book counts."""
+async def get_available_stages(
+    subject: Optional[str] = None,
+    db: Session = Depends(get_db),
+) -> list[dict]:
+    """Get available stages (educational levels) with their book counts.
+
+    Pass `subject` to count books for a single canonical subject; omit to
+    count the whole catalog.
+    """
+    subject_key = _validate_subject_key(db, subject)
     try:
-        all_math = await _moe_service.get_math_books()
+        all_books = await _moe_service.get_books(db=db, subject_key=subject_key)
     except RuntimeError as e:
         raise HTTPException(status_code=502, detail=str(e))
 
-    # Count books per stage
     stage_counts: dict[str, int] = {}
-    for book in all_math:
+    for book in all_books:
         stage_key = book.get("stage_key", "")
         if stage_key:
             stage_counts[stage_key] = stage_counts.get(stage_key, 0) + 1
@@ -160,6 +189,20 @@ async def get_available_stages() -> list[dict]:
         {"key": "secondary", "label_ar": "الثانوي العام", "label_en": "Secondary", "count": stage_counts.get("secondary", 0)},
     ]
     return stages
+
+
+@router.get("/catalog-subjects")
+async def get_catalog_subjects(db: Session = Depends(get_db)) -> list[dict]:
+    """List the distinct subjects present in the MOE textbook catalog.
+
+    Each entry maps a raw MOE catalog `subject` string to its canonical
+    subject_key (or null if the alias doesn't match the seeded taxonomy
+    yet). Useful for spotting catalog drift after MOE adds new subjects.
+    """
+    try:
+        return await _moe_service.list_catalog_subjects(db=db)
+    except RuntimeError as e:
+        raise HTTPException(status_code=502, detail=str(e))
 
 
 async def _run_moe_ingestion(book_id: int, file_path: str) -> None:
@@ -189,16 +232,7 @@ async def import_moe_book(
     background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ) -> ImportResponse:
-    """Download and import a book from MOE eLibrary into the system.
-
-    Steps:
-        1. Look up the book in the MOE catalog by ID
-        2. Download the PDF
-        3. Create a database record
-        4. Run the ingestion pipeline (same as manual upload)
-        5. Return the book record
-    """
-    # 1. Find the book in the catalog
+    """Download and import a book from MOE eLibrary into the system."""
     moe_book = await _moe_service.get_book_by_id(request.book_id)
     if not moe_book:
         raise HTTPException(status_code=404, detail="Book not found in MOE catalog.")
@@ -207,9 +241,25 @@ async def import_moe_book(
     if not pdf_url:
         raise HTTPException(status_code=400, detail="Book has no PDF link.")
 
-    # Check if this book was already imported
+    # Resolve canonical subject_key from the MOE catalog's subject string
+    # (handles hamza variants + the legacy '-قديم' Chinese guard).
+    moe_subject = moe_book.get("subject", "")
+    resolved_subject_key = (
+        resolve_subject_key_from_moe_label(db, moe_subject) or "math"
+    )
+
+    # Look up display labels for the resolved subject so the Book row
+    # carries human-readable strings, not just the slug.
+    subject_row = (
+        db.query(Subject).filter(Subject.key == resolved_subject_key).first()
+    )
+    subject_label = (
+        subject_row.label_en if subject_row else moe_subject or "Curriculum"
+    )
+
+    # Skip re-import if we already have this exact (title, grade, term).
     existing = db.query(Book).filter(
-        Book.title == moe_book.get("subject", ""),
+        Book.title == moe_subject,
         Book.grade_level == moe_book.get("grade", ""),
         Book.term == ("1" if "الأول" in moe_book.get("term", "") else "2"),
     ).first()
@@ -218,24 +268,26 @@ async def import_moe_book(
             id=existing.id,
             title=existing.title,
             status=existing.status,
+            subject_key=existing.subject_key,
             message="Book already imported.",
         )
 
-    # 2. Download the PDF
     try:
         filename = f"moe_{request.book_id}_{pdf_url.split('/')[-1]}"
         file_path = await _moe_service.download_book_pdf(pdf_url, filename=filename)
     except RuntimeError as e:
         raise HTTPException(status_code=502, detail=f"Failed to download book: {e}")
 
-    # 3. Create database record
     term_number = "1" if "الأول" in moe_book.get("term", "") else "2"
     book = Book(
-        title=moe_book.get("subject", "Unknown"),
+        title=moe_subject or "Unknown",
         grade_level=moe_book.get("grade", ""),
         academic_year="2025-2026",
         term=term_number,
-        subject="Mathematics",
+        subject=subject_label,
+        subject_key=resolved_subject_key,
+        is_legacy_curriculum="-قديم" in moe_subject,
+        primary_language="ar",
         filename=filename,
         file_path=file_path,
         total_pages=0,
@@ -246,12 +298,12 @@ async def import_moe_book(
     db.commit()
     db.refresh(book)
 
-    # 4. Run ingestion pipeline in background
     background_tasks.add_task(_run_moe_ingestion, book.id, file_path)
 
     return ImportResponse(
         id=book.id,
         title=book.title,
         status="processing",
+        subject_key=book.subject_key,
         message="Book download complete. Ingestion started.",
     )

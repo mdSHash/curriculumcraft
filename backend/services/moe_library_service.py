@@ -5,10 +5,14 @@ Integrates with https://ellibrary.moe.gov.eg to:
   • browse/download official weekly assessments (`/cha/books.json`)
 
 The "cha" endpoint exposes the *Classroom & Home Assessments* — official
-weekly assessment PDFs published by the Mathematics Curriculum Development
-Department for Secondary 1 & 2 (term 2 2025-2026 at time of writing).
-Each assessment follows a topic-organized layout with three parallel
-"groups" (First/Second/Third) of equivalent difficulty.
+weekly assessment PDFs published by the Curriculum Development departments
+across all subjects (Math, Arabic, Physics, Chemistry, Languages, …).
+Each assessment follows a topic-organized weekly layout (W1–W11).
+
+Subject filtering is driven by the canonical Subject taxonomy in the DB
+(see backend/seeds/subjects.json + services/subjects/registry.py). The
+matcher applies hamza folding so MOE catalog variants like 'اللغة الاسبانية'
+and 'اللغة الإسبانية' both resolve to the same canonical subject_key.
 """
 
 import hashlib
@@ -21,6 +25,10 @@ from typing import Optional
 import httpx
 
 from config import get_settings
+from services.subjects.registry import (
+    _normalize_arabic,
+    resolve_subject_key_from_moe_label,
+)
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -28,14 +36,7 @@ settings = get_settings()
 # Cache duration: 24 hours in seconds
 CACHE_TTL_SECONDS = 24 * 60 * 60
 
-# Math subject keywords (Arabic variants found in the catalog)
-MATH_SUBJECT_KEYWORDS = [
-    "الرياضيات",
-    "رياضيات",
-    "Math",
-]
-
-# Stage mapping for filtering
+# Stage mapping for filtering (English UI key → Arabic catalog value)
 STAGE_MAP = {
     "primary": "الإبتدائية",
     "preparatory": "الإعدادية",
@@ -101,8 +102,6 @@ class MOELibraryService:
             ),
             "Referer": f"{self.BASE_URL}/books/",
         }
-        # Headers used specifically when calling the cha/ endpoint. Mirror the
-        # real browser request the user provided so the edge accepts us.
         self._assessment_headers = {
             "Accept": "*/*",
             "Accept-Language": "en-US,en;q=0.8",
@@ -133,12 +132,7 @@ class MOELibraryService:
         return hashlib.md5(key.encode("utf-8")).hexdigest()[:12]
 
     def _generate_assessment_id(self, item: dict) -> str:
-        """Generate a stable unique ID for an assessment entry.
-
-        Uses the link as part of the key because two entries can share the
-        same (stage, grade, term, subject, type) tuple if the catalog is ever
-        revised — the link is the unique pointer.
-        """
+        """Generate a stable unique ID for an assessment entry."""
         key = (
             f"{item.get('stage', '')}-{item.get('grade', '')}-"
             f"{item.get('term', '')}-{item.get('subject', '')}-"
@@ -179,6 +173,37 @@ class MOELibraryService:
         )
         logger.info(f"Cached {len(books)} entries → {path.name}")
 
+    # ─── Subject matching ───────────────────────────────────────────────────
+
+    def _entry_matches_subject(
+        self, entry: dict, subject_aliases_normalized: set[str]
+    ) -> bool:
+        """True when entry['subject'] matches any normalized alias.
+
+        Hamza-folded both sides so 'اللغة الاسبانية' and 'اللغة الإسبانية'
+        match the same alias set.
+        """
+        catalog_subject = _normalize_arabic(str(entry.get("subject", "")))
+        if not catalog_subject:
+            return False
+        return catalog_subject in subject_aliases_normalized
+
+    def _aliases_for_subject_key(self, db, subject_key: str) -> set[str]:
+        """Return the normalized MOE catalog alias set for a subject_key.
+
+        Reads from the Subject row's moe_catalog_labels list (seeded from
+        subjects.json). Returns an empty set if the key is unknown — caller
+        treats empty set as "match nothing".
+        """
+        from models.subject import Subject
+
+        row = db.query(Subject).filter(Subject.key == subject_key).first()
+        if row is None:
+            return set()
+        aliases = {_normalize_arabic(str(a)) for a in (row.moe_catalog_labels or [])}
+        aliases.discard("")
+        return aliases
+
     # ─── Textbook catalog ───────────────────────────────────────────────────
 
     async def fetch_catalog(self) -> list[dict]:
@@ -215,30 +240,51 @@ class MOELibraryService:
         logger.info(f"Fetched {len(books)} books from MOE eLibrary.")
         return books
 
-    async def get_math_books(
-        self, grade_level: Optional[str] = None, stage: Optional[str] = None
+    async def get_books(
+        self,
+        db=None,
+        subject_key: Optional[str] = None,
+        grade_level: Optional[str] = None,
+        stage: Optional[str] = None,
     ) -> list[dict]:
-        """Filter catalog to only math books, optionally by grade level or stage."""
+        """Filter the textbook catalog, optionally by canonical subject_key.
+
+        Args:
+            db: SQLAlchemy session (required when subject_key is given so we
+                can resolve aliases). Pass None to skip subject filtering.
+            subject_key: Canonical key like 'math', 'arabic_lang', 'physics'.
+                         None or empty = return all subjects.
+            grade_level: Optional grade key like 'primary1', 'secondary2'.
+            stage: Optional stage key like 'primary', 'preparatory', 'secondary'.
+        """
         catalog = await self.fetch_catalog()
 
-        math_books = [
-            b for b in catalog
-            if any(kw in b.get("subject", "") for kw in MATH_SUBJECT_KEYWORDS)
-        ]
+        if subject_key and db is not None:
+            aliases = self._aliases_for_subject_key(db, subject_key)
+            if not aliases:
+                logger.warning(
+                    "get_books: subject_key=%r has no aliases in DB",
+                    subject_key,
+                )
+                return []
+            catalog = [
+                b for b in catalog if self._entry_matches_subject(b, aliases)
+            ]
 
         if stage and stage in STAGE_MAP:
             stage_arabic = STAGE_MAP[stage]
-            math_books = [b for b in math_books if b.get("stage") == stage_arabic]
+            catalog = [b for b in catalog if b.get("stage") == stage_arabic]
 
         if grade_level and grade_level in GRADE_MAP:
             grade_arabic = GRADE_MAP[grade_level]
-            math_books = [b for b in math_books if b.get("grade") == grade_arabic]
+            catalog = [b for b in catalog if b.get("grade") == grade_arabic]
 
         enriched = []
-        for book in math_books:
+        for book in catalog:
             enriched.append({
                 "id": book.get("id"),
                 "title": book.get("subject", ""),
+                "moe_subject_label": book.get("subject", ""),
                 "stage": book.get("stage", ""),
                 "stage_key": self._reverse_stage_lookup(book.get("stage", "")),
                 "grade": book.get("grade", ""),
@@ -251,14 +297,55 @@ class MOELibraryService:
 
         return enriched
 
+    async def get_math_books(
+        self,
+        grade_level: Optional[str] = None,
+        stage: Optional[str] = None,
+        db=None,
+    ) -> list[dict]:
+        """Deprecated: use get_books(subject_key='math', ...).
+
+        Kept for one release as a thin wrapper for any caller that still
+        imports the old name.
+        """
+        return await self.get_books(
+            db=db,
+            subject_key="math",
+            grade_level=grade_level,
+            stage=stage,
+        )
+
+    async def list_catalog_subjects(self, db=None) -> list[dict]:
+        """List the distinct subjects present in the MOE textbook catalog,
+        resolved to canonical keys.
+
+        Returns:
+            List of {key, moe_label, count} dicts. `key` is None for any
+            MOE catalog subject that didn't match any seeded alias —
+            useful for spotting catalog drift.
+        """
+        catalog = await self.fetch_catalog()
+        counts: dict[tuple[Optional[str], str], int] = {}
+        for book in catalog:
+            label = book.get("subject", "")
+            if not label:
+                continue
+            key = (
+                resolve_subject_key_from_moe_label(db, label) if db else None
+            )
+            counts[(key, label)] = counts.get((key, label), 0) + 1
+
+        out = [
+            {"key": key, "moe_label": label, "count": n}
+            for (key, label), n in counts.items()
+        ]
+        out.sort(key=lambda x: (-x["count"], x["moe_label"]))
+        return out
+
     # ─── Weekly assessments catalog (cha/) ──────────────────────────────────
 
     async def fetch_assessments_catalog(self) -> list[dict]:
-        """Fetch the official weekly-assessments catalog from /cha/books.json.
-
-        Uses the user-supplied browser headers and ARRAffinity cookies so the
-        Azure edge accepts the request. Cached to disk for 24h.
-        """
+        """Fetch the official weekly-assessments catalog from /cha/books.json."""
         cached = self.get_cached_assessments()
         if cached is not None:
             logger.info(f"Using cached MOE assessments: {len(cached)} entries.")
@@ -295,7 +382,6 @@ class MOELibraryService:
             if not isinstance(item, dict):
                 continue
             item["id"] = self._generate_assessment_id(item)
-            # Extract a 1-based week number from the type string when possible.
             item["week_number"] = self._extract_week_number(item.get("type", ""))
             items.append(item)
 
@@ -317,45 +403,54 @@ class MOELibraryService:
                 return None
         return None
 
-    async def get_math_assessments(
+    async def get_assessments(
         self,
+        db=None,
+        subject_key: Optional[str] = None,
         grade_level: Optional[str] = None,
         stage: Optional[str] = None,
         week: Optional[int] = None,
     ) -> list[dict]:
-        """Filter assessments catalog to math entries.
+        """Filter the weekly-assessments catalog, optionally by subject_key.
 
         Args:
-            grade_level: Optional grade key like 'secondary1', 'secondary2'.
-            stage: Optional stage key like 'secondary'.
+            db: SQLAlchemy session, required when subject_key is given.
+            subject_key: Canonical subject key. None = all subjects.
+            grade_level: Optional grade key.
+            stage: Optional stage key.
             week: Optional 1-based week number filter (1..11).
-
-        Returns:
-            List of math assessment entries with normalized metadata.
         """
         catalog = await self.fetch_assessments_catalog()
 
-        math_items = [
-            it for it in catalog
-            if any(kw in it.get("subject", "") for kw in MATH_SUBJECT_KEYWORDS)
-        ]
+        if subject_key and db is not None:
+            aliases = self._aliases_for_subject_key(db, subject_key)
+            if not aliases:
+                logger.warning(
+                    "get_assessments: subject_key=%r has no aliases in DB",
+                    subject_key,
+                )
+                return []
+            catalog = [
+                it for it in catalog if self._entry_matches_subject(it, aliases)
+            ]
 
         if stage and stage in STAGE_MAP:
             stage_arabic = STAGE_MAP[stage]
-            math_items = [it for it in math_items if it.get("stage") == stage_arabic]
+            catalog = [it for it in catalog if it.get("stage") == stage_arabic]
 
         if grade_level and grade_level in GRADE_MAP:
             grade_arabic = GRADE_MAP[grade_level]
-            math_items = [it for it in math_items if it.get("grade") == grade_arabic]
+            catalog = [it for it in catalog if it.get("grade") == grade_arabic]
 
         if week is not None:
-            math_items = [it for it in math_items if it.get("week_number") == week]
+            catalog = [it for it in catalog if it.get("week_number") == week]
 
         enriched = []
-        for item in math_items:
+        for item in catalog:
             enriched.append({
                 "id": item.get("id"),
                 "title": item.get("subject", ""),
+                "moe_subject_label": item.get("subject", ""),
                 "stage": item.get("stage", ""),
                 "stage_key": self._reverse_stage_lookup(item.get("stage", "")),
                 "grade": item.get("grade", ""),
@@ -367,7 +462,6 @@ class MOELibraryService:
                 "pdf_url": item.get("link", ""),
             })
 
-        # Sort by grade → subject → week so the UI list reads naturally.
         enriched.sort(
             key=lambda x: (
                 x.get("grade_key") or "",
@@ -376,6 +470,22 @@ class MOELibraryService:
             )
         )
         return enriched
+
+    async def get_math_assessments(
+        self,
+        grade_level: Optional[str] = None,
+        stage: Optional[str] = None,
+        week: Optional[int] = None,
+        db=None,
+    ) -> list[dict]:
+        """Deprecated: use get_assessments(subject_key='math', ...)."""
+        return await self.get_assessments(
+            db=db,
+            subject_key="math",
+            grade_level=grade_level,
+            stage=stage,
+            week=week,
+        )
 
     async def get_assessment_by_id(self, assessment_id: str) -> Optional[dict]:
         """Find a specific weekly assessment by its generated ID."""
@@ -388,25 +498,12 @@ class MOELibraryService:
     async def get_assessment_reference_text(
         self, assessment_id: str, max_chars: int = 12000
     ) -> Optional[str]:
-        """Download an official assessment PDF and extract its text.
-
-        The result is cached on disk so subsequent generations re-use the
-        extracted text without re-downloading or re-parsing.
-
-        Args:
-            assessment_id: The catalog ID returned by `get_math_assessments`.
-            max_chars: Truncate the returned text to this many chars to fit
-                the LLM context window.
-
-        Returns:
-            Plain text of the official assessment, or None on failure.
-        """
+        """Download an official assessment PDF and extract its text."""
         item = await self.get_assessment_by_id(assessment_id)
         if not item:
             logger.warning(f"Assessment {assessment_id} not found in catalog.")
             return None
 
-        # Cached extracted text?
         self.REFERENCE_TEXT_CACHE.mkdir(parents=True, exist_ok=True)
         cache_path = self.REFERENCE_TEXT_CACHE / f"{assessment_id}.txt"
         if cache_path.exists():
@@ -418,12 +515,10 @@ class MOELibraryService:
                         f"({len(cached_text)} chars)"
                     )
                     return cached_text[:max_chars]
-                # Empty cache → drop it so we don't keep falling through.
                 cache_path.unlink(missing_ok=True)
             except OSError as e:
                 logger.warning(f"Failed to read cached reference text: {e}")
 
-        # Download the PDF
         pdf_url = item.get("link")
         if not pdf_url:
             return None
@@ -436,7 +531,6 @@ class MOELibraryService:
                 logger.warning(f"Could not download reference PDF: {e}")
                 return None
 
-        # Extract text
         try:
             text = self._extract_pdf_text(pdf_path)
         except Exception as e:
@@ -453,7 +547,7 @@ class MOELibraryService:
 
     @staticmethod
     def _extract_pdf_text(pdf_path: Path) -> str:
-        """Extract plain text from a PDF using pdfplumber (already a dep)."""
+        """Extract plain text from a PDF using pdfplumber."""
         import pdfplumber
 
         out: list[str] = []
@@ -485,15 +579,7 @@ class MOELibraryService:
     async def download_book_pdf(
         self, pdf_url: str, filename: Optional[str] = None
     ) -> str:
-        """Download a book or assessment PDF from the eLibrary.
-
-        Args:
-            pdf_url: Direct URL to the PDF file.
-            filename: Custom save path (absolute) OR filename within DOWNLOAD_DIR.
-
-        Returns:
-            Local file path where the PDF was saved.
-        """
+        """Download a book or assessment PDF from the eLibrary."""
         if filename and Path(filename).is_absolute():
             save_path = Path(filename)
         else:
@@ -506,14 +592,9 @@ class MOELibraryService:
         save_path.parent.mkdir(parents=True, exist_ok=True)
         logger.info(f"Downloading MOE PDF: {pdf_url} -> {save_path}")
 
-        # The blob storage CDN typically doesn't need ARRAffinity cookies, but
-        # it does respect a proper UA. Use the assessment headers to be safe.
         headers = dict(self._assessment_headers)
         headers["Referer"] = f"{self.BASE_URL}/cha/"
 
-        # Stream to a .tmp sibling and atomically rename on success so a
-        # mid-stream failure can never leave a partial PDF that
-        # `pdf_path.exists()` callers would mistake for a complete cache hit.
         tmp_path = save_path.with_suffix(save_path.suffix + ".tmp")
         try:
             async with httpx.AsyncClient(timeout=120.0, follow_redirects=True) as client:
