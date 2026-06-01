@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     # Google Gemini
     GEMINI_API_KEY: str = ""
-    GEMINI_MODEL: str = "gemini-3.1-pro-preview"
+    GEMINI_MODEL: str = "gemini-2.5-pro"
 
     # Embeddings — multilingual model for Arabic + English support
     EMBEDDING_MODEL: str = "paraphrase-multilingual-MiniLM-L12-v2"

@@ -1,6 +1,7 @@
 """Workbook-related Pydantic schemas."""
 
 from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel, ConfigDict
 
@@ -81,6 +82,9 @@ class WorkbookResponse(BaseModel):
     file_path: str
     total_pages: int
     status: str
+    progress: int = 0
+    progress_message: Optional[str] = None
+    error_message: Optional[str] = None
     created_at: datetime
 
 
@@ -95,5 +99,6 @@ class WorkbookListItem(BaseModel):
     total_pages: int
     status: str
     progress: int = 0
-    progress_message: str | None = None
+    progress_message: Optional[str] = None
+    error_message: Optional[str] = None
     created_at: datetime

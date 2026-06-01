@@ -126,6 +126,7 @@ class ExamListItem(BaseModel):
     status: str
     progress: int = 0
     progress_message: Optional[str] = None
+    error_message: Optional[str] = None
     created_at: datetime
 
 

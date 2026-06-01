@@ -43,12 +43,13 @@ OUTPUT: Always return a valid JSON array. No markdown fences, no explanation tex
 class LLMService:
     """Handles all LLM interactions using Google Gemini for generating workbook content."""
 
-    def __init__(self, api_key: str, model: str = "gemini-3.1-pro-preview"):
+    def __init__(self, api_key: str, model: str = "gemini-2.5-pro"):
         self.model_name = model
         self.api_key = api_key
         self.model = None
         self._genai = None
         self._configure()
+        self._probe_model()
 
     def _configure(self) -> None:
         """Configure the Gemini API (lazy import)."""
@@ -71,6 +72,40 @@ class LLMService:
             self._genai = None
         except Exception as e:
             logger.error(f"Failed to configure Gemini API: {e}")
+            self.model = None
+            self._genai = None
+
+    def _probe_model(self) -> None:
+        """Verify the configured Gemini model is reachable.
+
+        Sends a tiny request to fail fast on invalid model IDs (e.g. typos
+        like 'gemini-3.1-pro-preview') instead of silently falling back to
+        template exercises on every generation. Logs ERROR with a clear
+        remediation hint when the probe fails.
+        """
+        if self.model is None or self._genai is None:
+            return
+        try:
+            response = self.model.generate_content(
+                "ping",
+                generation_config=self._genai.GenerationConfig(
+                    temperature=0.0,
+                    max_output_tokens=1,
+                ),
+            )
+            _ = getattr(response, "text", None)
+            logger.info(
+                f"Gemini model probe OK: '{self.model_name}' is reachable"
+            )
+        except Exception as e:
+            logger.error(
+                "Gemini model probe FAILED for '%s': %s. "
+                "All generation will silently fall back to templates. "
+                "Fix: set GEMINI_MODEL in backend/.env to a valid model "
+                "(e.g. 'gemini-2.5-pro' or 'gemini-2.0-flash') and restart.",
+                self.model_name,
+                e,
+            )
             self.model = None
             self._genai = None
 

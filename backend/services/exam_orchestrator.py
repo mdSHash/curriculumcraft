@@ -482,13 +482,12 @@ class ExamOrchestrator:
                 query_parts.extend([t.title for t in topics])
 
             if not query_parts:
-                query_parts = ["mathematics exam questions"]
-            query = " ".join(query_parts)
+                query_parts = ["exam questions"]
 
             try:
-                results = await rag_service.retrieve(
-                    query=query,
+                results = await rag_service.retrieve_for_topics(
                     book_id=book_id,
+                    topics=query_parts,
                     top_k=settings.RAG_TOP_K,
                 )
                 rag_text = "\n\n".join(
@@ -498,7 +497,10 @@ class ExamOrchestrator:
                     f"[ExamOrchestrator] Retrieved {len(results or [])} RAG chunks"
                 )
             except Exception as e:
-                logger.warning(f"[ExamOrchestrator] RAG retrieval failed: {e}")
+                logger.error(
+                    f"[ExamOrchestrator] RAG retrieval failed: {e}",
+                    exc_info=True,
+                )
         else:
             logger.warning("[ExamOrchestrator] RAG unavailable, using empty context")
 
